@@ -1,0 +1,2 @@
+
+String imagePath="lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/advance_ShoppingCart_sample_roq/assets/images";
