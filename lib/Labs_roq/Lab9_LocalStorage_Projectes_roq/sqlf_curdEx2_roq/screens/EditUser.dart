@@ -1,5 +1,5 @@
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab_LocalStorage_Projectes_roq/sqlf_curdEx2_roq/model/User.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab_LocalStorage_Projectes_roq/sqlf_curdEx2_roq/services/userService.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curdEx2_roq/model/User.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curdEx2_roq/services/userService.dart';
 
 import 'package:flutter/material.dart';
 class EditUser extends StatefulWidget {

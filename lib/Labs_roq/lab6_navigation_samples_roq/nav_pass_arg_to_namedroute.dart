@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(Main_Page_Pass_Data_Roq());
 
 class Main_Page_Pass_Data_Roq extends StatelessWidget {
-  //const MyApp({Key? key}) : super(key: key);
+  const Main_Page_Pass_Data_Roq({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

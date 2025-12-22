@@ -18,7 +18,7 @@ class DialogsType_Samples_Roq extends StatelessWidget {
 }
 
 class DialogSamples_Roq extends StatefulWidget {
-  DialogSamples_Roq();
+ const DialogSamples_Roq();
 
   @override
   DialogCustomInfoRouteState createState() => new DialogCustomInfoRouteState();

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 //import 'package:flutter_laps_samples_roq_2022/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex3_roq/model/note.dart';
+/*
 import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab_LocalStorage_Projectes_roq/sqlf_curd_ex3_roq/model/note.dart';
+*/
+
+import '../model/note.dart';
 
 final _lightColors = [
   Colors.amber.shade300,

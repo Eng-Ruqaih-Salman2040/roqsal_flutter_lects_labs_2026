@@ -20,7 +20,6 @@ List<Photo> parsePhotos(String responseBody) {
   return parsed.map<Photo>((json) => Photo.fromJson(json)).toList();
 }
 
-
 void main() => runApp(const MyHomePage());
 
 class MyHomePage extends StatelessWidget {
@@ -37,7 +36,7 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class API_Parse_JSON_Roq_Ex  extends StatelessWidget {
+class API_Parse_JSON_Roq_Ex extends StatelessWidget {
   const API_Parse_JSON_Roq_Ex({Key? key, required this.title}) : super(key: key);
 
   final String title;
@@ -52,6 +51,7 @@ class API_Parse_JSON_Roq_Ex  extends StatelessWidget {
         future: fetchPhotos(http.Client()),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
+            print('Error: ${snapshot.error}');
             return const Center(
               child: Text('An error has occurred!'),
             );
@@ -78,15 +78,37 @@ class PhotosList extends StatelessWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        crossAxisSpacing: 4.0,
+        mainAxisSpacing: 4.0,
       ),
-      itemCount: photos.length,
+      itemCount: photos.length > 20 ? 20 : photos.length, // Limit for testing
       itemBuilder: (context, index) {
-        return Image.network(photos[index].thumbnailUrl);
+        return Container(
+          color: Colors.grey[200],
+          margin: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Using Icon instead of Image to avoid network errors
+              const Icon(Icons.photo, size: 50, color: Colors.blue),
+              const SizedBox(height: 8),
+              Text(
+                'ID: ${photos[index].id}',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 12),
+              ),
+              Text(
+                'Album: ${photos[index].albumId}',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 10, color: Colors.grey),
+              ),
+            ],
+          ),
+        );
       },
     );
   }
 }
-
 
 class Photo {
   final int albumId;
@@ -113,4 +135,3 @@ class Photo {
     );
   }
 }
-/////////////////////////////////////////////////////////////

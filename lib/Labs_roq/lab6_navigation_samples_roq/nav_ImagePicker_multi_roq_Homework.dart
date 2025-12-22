@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(const MultiImage_by_imagepicker_Roq_Ex());
+  runApp(const MyHomePage_ImagePicker());
 }
 
-class MultiImage_by_imagepicker_Roq_Ex extends StatelessWidget {
-  const MultiImage_by_imagepicker_Roq_Ex({Key? key}) : super(key: key);
+class MyHomePage_ImagePicker  extends StatelessWidget {
+  const MyHomePage_ImagePicker({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +17,18 @@ class MultiImage_by_imagepicker_Roq_Ex extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MultiImage_by_imagepicker_Roq_Ex(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MultiImage_by_imagepicker_Roq_Ex extends StatefulWidget {
+  const MultiImage_by_imagepicker_Roq_Ex({Key? key}) : super(key: key);
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MultiImage_by_imagepicker_Roq_Ex> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MultiImage_by_imagepicker_Roq_Ex> {
   final ImagePicker imagePicker = ImagePicker();
   List<XFile>? imageFileList = [];
 

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laps_samples_roq_2022/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/Models/bill.dart';
 import 'package:flutter_laps_samples_roq_2022/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/db/DatabaseHandler.dart';
 */
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/Models/bill.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/db/DatabaseHandler.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/Models/bill.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/db/DatabaseHandler.dart';
 
 
 class MyData extends DataTableSource {

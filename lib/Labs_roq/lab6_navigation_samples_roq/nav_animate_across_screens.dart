@@ -2,30 +2,33 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 void main() {
-  runApp(Animate_Across_Screens_Roq());
+  runApp(MyHomePage_Animate_Across_Screens_Roq());
 }
 
-class Animate_Across_Screens_Roq extends StatelessWidget {
+class MyHomePage_Animate_Across_Screens_Roq extends StatelessWidget {
+  //const MyHomePage_Animate_Across_Screens_Roq({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Hero Roq App'),
+      home: const Animate_Across_Screens_Roq(title: 'Hero Roq App'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class Animate_Across_Screens_Roq extends StatefulWidget {
+  const Animate_Across_Screens_Roq({Key? key, this.title = 'Hero Roq App'})
+      : super(key: key);
   final String title;
 
-  const MyHomePage({this.title = 'Hero Roq App'});
+  //const MyHomePage({this.title = 'Hero Roq App'});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<Animate_Across_Screens_Roq> {
   bool imagesVisible = true;
 
   List cardContent = [];
@@ -94,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const MyHomePage(
+                  builder: (BuildContext context) => const Animate_Across_Screens_Roq(
                     title: 'Houses',
                   ),
                 ),
@@ -111,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const MyHomePage(
+                  builder: (BuildContext context) => const Animate_Across_Screens_Roq(
                     title: 'Apartments',
                   ),
                 ),
@@ -128,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const MyHomePage(
+                  builder: (BuildContext context) => const Animate_Across_Screens_Roq(
                     title: 'Townhomes',
                   ),
                 ),
@@ -149,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const MyHomePage(
+                  builder: (BuildContext context) => const Animate_Across_Screens_Roq(
                     title: 'Favorites',
                   ),
                 ),
