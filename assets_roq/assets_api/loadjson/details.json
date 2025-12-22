@@ -1,0 +1,42 @@
+[
+  {
+  "title":"Yogita",
+  "text":"Kumar",
+    "img": "assets_roq/assets_api/images/face1.png"
+  },
+  {
+    "title":"Abhishek",
+    "text":"Kumar",
+    "img": "assets_roq/assets_api/images/face1.png"
+  },
+  {
+    "title":"Shashwat Kumar",
+    "text":"Singh",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  },
+  {
+    "title":"Advika",
+    "text":"Singh",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  },
+  {
+    "title":"Yamini",
+    "text":"Gupta",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  },
+  {
+    "title":"Nisha",
+    "text":"Rawal",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  },
+  {
+    "title":"Bhavesh",
+    "text":"Joshi",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  },
+  {
+    "title":"Rahul",
+    "text":"Khanna",
+    "img": "assets_roq/assets_api/images/face1.jpg"
+  }
+]

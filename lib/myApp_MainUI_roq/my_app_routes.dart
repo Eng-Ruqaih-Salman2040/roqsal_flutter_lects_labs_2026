@@ -3,9 +3,9 @@
 // "structure" of the group of example routes, in a const List<Tuple2> object.
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/14_Dropdown_Baisc_roq.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/15_Dropdown_List_roq.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/16_Dropdown_object_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/14_Dropdown_Baisc_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/15_Dropdown_List_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/16_Dropdown_object_roq.dart';
 import '../Custom_Widgets_roq/UI_ofCustomWidgets_roq/SignUp_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_builder_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_count_roq.dart';
@@ -13,7 +13,7 @@ import '../Labs_roq/Lab2_layout_widgets_roq/gridView_custom_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_extent_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/lay_mealUI_roq.dart';
 
-import '../Labs_roq/Lab9_LocalStorage_All_Wayesroq/main_ways_storedata_ffoline_roq.dart';
+import '../Labs_roq/Lect9_LocalStorage_All_Wayes_roq/main_ways_storedata_ffoline_roq.dart';
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/DropdownButton_demo_2025.dart';
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_button_roq.dart';
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_checkBox_roq.dart';
@@ -58,29 +58,29 @@ import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/sc
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_prisistentBottomsheet_roq.dart';
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_adaptive_Demo1_roq.dart';
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_allPro_Demo1_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/10_IconButton_baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/11_InkwellButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/12_OutlinedButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/13_buttons_Demo_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/18_PopupMenu_List_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/1_Text_Baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/2_Text_morPro_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/3_RichText _roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/4_Icon_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/5_Textfield_baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/6_Textfield_Cotroller_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/6_Textfield_onChange_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/8_TextButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/9_setState_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/1_formWidget_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_1_Radio_ListTile_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_2_RadioListTile_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_3_RadioForm_objectRoq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/3_1_CheckboxRow_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/4_1_ switch _roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/4_2_SwitchListTile_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/10_IconButton_baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/11_InkwellButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/12_OutlinedButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/13_buttons_Demo_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/18_PopupMenu_List_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/1_Text_Baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/2_Text_morPro_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/3_RichText _roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/4_Icon_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/5_Textfield_baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_Cotroller_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_onChange_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/8_TextButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/9_setState_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/1_formWidget_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_1_Radio_ListTile_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_2_RadioListTile_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_3_RadioForm_objectRoq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/3_1_CheckboxRow_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/4_1_ switch _roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/4_2_SwitchListTile_roq.dart';
 import '../myApp_Data_Settings_roq/constants.dart';
 
 import 'about.dart';
@@ -895,9 +895,9 @@ final Map<String, WidgetBuilder> kAppRoutingTable = <String, WidgetBuilder>{
 */
 
 import 'package:flutter/material.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/14_Dropdown_Baisc_roq.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/15_Dropdown_List_roq.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_UI_widgets_roq/16_Dropdown_object_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/14_Dropdown_Baisc_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/15_Dropdown_List_roq.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Lecturs_roq/Lect6_1_UI_widgets_roq/16_Dropdown_object_roq.dart';
 import '../Custom_Widgets_roq/UI_ofCustomWidgets_roq/SignUp_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_builder_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_count_roq.dart';
@@ -905,10 +905,14 @@ import '../Labs_roq/Lab2_layout_widgets_roq/gridView_custom_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/gridView_extent_roq.dart';
 import '../Labs_roq/Lab2_layout_widgets_roq/lay_mealUI_roq.dart';
 
-import '../Labs_roq/Lab9_LocalStorage_All_Wayesroq/main_ways_storedata_ffoline_roq.dart';
+
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/DropdownButton_demo_2025.dart';
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_button_roq.dart';
 import '../Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_checkBox_roq.dart';
+
+import '../Lecturs_roq/Lect7_navigation_roq/Explain_of_Student/main_navigation_roq.dart';
+import '../Lecturs_roq/Lect9_LocalStorage_All_Wayes_roq/main_ways_storedata_ffoline_roq.dart';
+import '../Lecturs_roq/Lect10_api_roq/main_api.dart';
 import '../Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/10_SM_multiProvider_roq.dart';
 import '../Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/1_without_SM_roq.dart';
 import '../Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/2_with_SM_setState_roq.dart';
@@ -949,29 +953,29 @@ import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/sc
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_prisistentBottomsheet_roq.dart';
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_adaptive_Demo1_roq.dart';
 import '../Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_allPro_Demo1_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/10_IconButton_baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/11_InkwellButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/12_OutlinedButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/13_buttons_Demo_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/18_PopupMenu_List_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/1_Text_Baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/2_Text_morPro_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/3_RichText _roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/4_Icon_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/5_Textfield_baisc_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/6_Textfield_Cotroller_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/6_Textfield_onChange_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/8_TextButton_roq.dart';
-import '../Lecturs_roq/Lect6_UI_widgets_roq/9_setState_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/1_formWidget_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_1_Radio_ListTile_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_2_RadioListTile_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/2_3_RadioForm_objectRoq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/3_1_CheckboxRow_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/4_1_ switch _roq.dart';
-import '../Lecturs_roq/Lect7_UI_widgets_roq/4_2_SwitchListTile_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/10_IconButton_baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/11_InkwellButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/12_OutlinedButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/13_buttons_Demo_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/18_PopupMenu_List_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/1_Text_Baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/2_Text_morPro_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/3_RichText _roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/4_Icon_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/5_Textfield_baisc_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_Cotroller_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_onChange_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/8_TextButton_roq.dart';
+import '../Lecturs_roq/Lect6_1_UI_widgets_roq/9_setState_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/1_formWidget_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_1_Radio_ListTile_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_2_RadioListTile_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/2_3_RadioForm_objectRoq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/3_1_CheckboxRow_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/4_1_ switch _roq.dart';
+import '../Lecturs_roq/Lect6_2_UI_widgets_roq/4_2_SwitchListTile_roq.dart';
 import '../myApp_Data_Settings_roq/constants.dart';
 import 'about.dart';
 import 'home_page.dart';
@@ -1040,18 +1044,7 @@ const List<MyRouteGroup> kMy_LabAppRoutsUI = <MyRouteGroup>[
       ),
     ],
   ),
-  MyRouteGroup(
-    groupName: 'Lab9 All Local Storages Wayes',
-    icon: Icon(Icons.widgets),
-    routes: <MyRoute>[
-      MyRoute(
-        child: Main_StoreData_Offline_Roq(),
-        title: 'All Local Storages Wayes',
-        description: 'GridView.Count',
-        sourceFilePath: '',
-      ),
-    ],
-  ),
+
 ];
 
 const kMy_LectAppRoutsUI = <MyRouteGroup>[
@@ -1369,6 +1362,43 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
         child: SwitchListTile_Roq(),
         title: ' SwitchListTile ',
         description: '',
+        sourceFilePath: '',
+      ),
+    ],
+  ),
+  MyRouteGroup(
+    groupName: 'Lect7 Navigation & Routing',
+    icon: Icon(Icons.navigate_next_sharp),
+    routes: <MyRoute>[
+      MyRoute(
+        child: Main_Navigation_Roq(),
+        title: 'Navigation & Routing',
+        description:  "Navigation & Routing in Flutter using RoqSal way",
+        sourceFilePath: '',
+      ),
+
+    ],
+  ),
+  MyRouteGroup(
+    groupName: 'Lect9 All Local Storages Wayes',
+    icon: Icon(Icons.widgets),
+    routes: <MyRoute>[
+      MyRoute(
+        child: Main_StoreData_Offline_Roq(),
+        title: 'All Local Storages Wayes',
+        description: 'All wayes (SharedPref ,File(JSON-CSV-TXT) , SQLite) to store data offline in Flutter',
+        sourceFilePath: '',
+      ),
+    ],
+  ),
+  MyRouteGroup(
+    groupName: 'Lect10 ِِAPI with Flutter',
+    icon: Icon(Icons.widgets),
+    routes: <MyRoute>[
+      MyRoute(
+        child: Main_API_All_Roq(),
+        title: 'API with Flutter',
+        description: 'All wayes (Offline and Online) to work with API in Flutter',
         sourceFilePath: '',
       ),
     ],

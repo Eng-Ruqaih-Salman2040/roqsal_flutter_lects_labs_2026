@@ -98,7 +98,12 @@ flutter:
 
 
     - assets_roq/assets_lect_roq/images_roq/
+    - assets_roq/images_roq/
     - assets_roq/assets_labs_roq/img_roq/
+    #-------------------------- Lecture api --------------------------
+    - assets_roq/assets_api/loadjson/details.json
+    - assets_roq/assets_api/images/
+    - assets_roq/assets_lect_roq/images_roq/
     - lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/assets/images/
     - assets_roq/assets_storage_offline/
     - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/advance_ShoppingCart_sample_roq/assets/images/

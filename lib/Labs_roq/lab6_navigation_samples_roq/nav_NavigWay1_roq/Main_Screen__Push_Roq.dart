@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import '../../Lab9_LocalStorage_roq/sql_curdEx_roq/colors.dart';
-//import '../../Lab_LocalStorage_Projectes_roq/sql_curdEx_roq/colors.dart';
+//import '../../Lab9_LocalStorage_Projectes_roq/sql_curdEx_roq/colors.dart';
 import '../../../myApp_Data_Settings_roq/constants.dart';
 import 'Screen1_w1_roq.dart';
 import 'Screen2_w1_roq.dart';
