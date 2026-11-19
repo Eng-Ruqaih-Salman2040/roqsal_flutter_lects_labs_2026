@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'ControllerGB_Lifcyclet_roq.dart';
+
+
+
+
+
+
+void main() {
+  runApp(Sc1_Lifcycle_Roq());
+}
+
+class Sc1_Lifcycle_Roq extends StatelessWidget {
+   Sc1_Lifcycle_Roq({Key? key}) : super(key: key);
+   Co_GB_Lifcyclet_Roq controller_roq=Get.find();
+   @override
+  Widget build(BuildContext context) {
+    return
+      Scaffold(
+        appBar: AppBar(
+          title: Text("Screen1_Lifcycle_Roq"),
+        ),
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            child: IconButton(onPressed: () {
+                              controller_roq.Increment_Funroq();
+                            }, icon: Icon(Icons.add, size: 40),)
+                        ),
+                        Center(child:
+                        GetBuilder<Co_GB_Lifcyclet_Roq>(
+                           // init: Co_GB_Getput_Roq(), Not nessery becus the get.put make it
+                            builder: (controller_roq) =>
+                        Text("${controller_roq.counter_roq}",
+                          style: TextStyle(fontSize: 30),))),
+                        Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            child: IconButton(onPressed: () {
+                              controller_roq.Dncrement_Funroq();
+                            }, icon: Icon(Icons.remove, size: 40,),)
+                        ),
+
+                      ],
+                    ),
+
+            ],
+          ),
+        ),
+
+      );
+  }
+}
+

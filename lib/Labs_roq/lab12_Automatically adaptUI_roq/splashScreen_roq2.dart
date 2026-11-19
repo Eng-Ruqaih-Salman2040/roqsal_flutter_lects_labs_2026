@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/lab11_Automatically%20adaptUI_roq/splashscreen.dart';
+//import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/lab11_Automatically%20adaptUI_roq/splashscreen.dart';
+import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/lab12_Automatically%20adaptUI_roq/splashscreen.dart';
 
 
 import 'splashscreen_roq.dart';
