@@ -209,7 +209,7 @@ const MyRoute kHomeRoute = MyRoute(
 );
 
 const MyRoute kAboutRoute = MyRoute(
-  sourceFilePath: 'lib/routes/about.dart',
+  sourceFilePath: 'lib/myApp_MainUI_roq/about.dart',
   title: 'About',
   links: {'Doc': 'https://docs.flutter.dev/development/ui/widgets/material'},
   child: MyAboutRoute(),
@@ -920,331 +920,331 @@ final List<MyRouteGroup> kMy_LabAppRoutsUI = <MyRouteGroup>[
 
 const kMy_LectAppRoutsUI = <MyRouteGroup>[
   MyRouteGroup(
-    groupName: 'Lect4 Scaffold Widgets',
+    groupName: 'Lecture 4 • Scaffold Widgets',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: FAB_Roq_App(),
         title: 'Baisc FAB',
         description: 'Baisc ListView',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/1_scaffold_FAB_roq.dart',
       ),
       MyRoute(
         child: FAB_Baisc_Roq_App(),
         title: 'FAB without extended',
         description: 'Login List',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/2_scaffold_FAB_roq.dart',
       ),
       MyRoute(
         child: FAB_Extend_Roq_App(),
         title: 'FAB with extended',
         description: 'Stack Baisc without use Position widget',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/3_scaffold_FAB_extend_roq.dart',
       ),
       MyRoute(
         child: BottomNavigationBarItem_Roq(),
         title: 'BottomNavigationBar Items',
         description: 'Stack Baisc with use Position widget',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/0_scaffold_bottomNavigationBar_items_roq.dart',
       ),
       MyRoute(
         child: BottomNavigationBar_onTap_Roq(),
         title: 'BottomNavigationBar_onTap',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/1_scaffold_bottomNavigationBar_onTap_roq.dart',
       ),
       MyRoute(
         child: BottomNavigationBar_curruntIndex_Roq(),
         title: 'BottomNavigationBar CurruntIndex_Roq',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/2_scaffold_bottomNavigationBar_curruntindex_roq.dart',
       ),
       MyRoute(
         child: Modal_Bottomsheet_Roq(),
         title: 'Modal Bottom sheet',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_Modalbottomsheet_roq.dart',
       ),
       MyRoute(
         child: BottomSheetPersistent_Roq_App(),
         title: 'Persistent Bottom sheet',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_prisistentBottomsheet_roq.dart',
       ),
       MyRoute(
         child: Baisc_SnackBar_Roq(),
         title: 'Baisc SnackBar',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/SnackBar_roq/0_scaffold_SnackBari_roq.dart',
       ),
       MyRoute(
         child: Var_of_SnackBar_Roq(),
         title: 'SnackBar in varibles',
         description: '  ',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/SnackBar_roq/1_scaffold_SnackBarinVar_roq.dart',
       ),
       MyRoute(
         child: Toast_Widget_roq(),
         title: 'Toast',
         description: '  ',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/Toast_roq.dart',
       ),
       MyRoute(
         child: Toast_Custom_Simple_Roq(),
         title: 'Toast',
         description: '  ',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/ToastCustom_roq.dart',
       ),
       MyRoute(
         child: Flushbar_Roq_Ex_All(),
         title: 'Flushbar',
         description: '  ',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/Flushbar_roq.dart',
       ),
       MyRoute(
         child: Scaffold_Properties_Roq(),
         title: "Commone Scaffold's Properties",
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_allPro_Demo1_roq.dart',
       ),
       MyRoute(
         child: AdaptiveScaffold_Roq(),
         title: 'Adaptive Scaffold',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_adaptive_Demo1_roq.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect5 Layout Widgets',
+    groupName: 'Lecture 5 • Layout Widgets',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: ListView_Roq_Ex(),
         title: 'ListView',
         description: 'Baisc ListView',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect2_layout_widgets_roq/listView_roq.dart',
       ),
       MyRoute(
         child: ListViewBuilder_Roq(),
         title: 'ListView.Builder',
         description: 'Login List',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect2_layout_widgets_roq/listView_Builder_roq.dart',
       ),
       MyRoute(
         child: StackBaisc_Roq(),
         title: 'Stack Baisc',
         description: 'Stack Baisc without use Position widget',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect2_layout_widgets_roq/stack_withoutPosition_roq.dart',
       ),
       MyRoute(
         child: StackwithPosition_Roq(),
         title: 'Stack & Position widget',
         description: 'Stack Baisc with use Position widget',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect2_layout_widgets_roq/stack_withPosition_roq.dart',
       ),
       MyRoute(
         child: Static_GridView_Roq(),
         title: 'GridView.count',
         description: 'GridView Baisc',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect2_layout_widgets_roq/gridViewDynamic_roq.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect6 Common UI Widgets part1',
+    groupName: 'Lecture 6 • UI Widgets (Part 1)',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: Text_Baisc_Roq(),
         title: 'Text Baisc',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/1_Text_Baisc_roq.dart',
       ),
       MyRoute(
         child: Text_MoreProp_Roq(),
         title: 'Text More Properties',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/2_Text_morPro_roq.dart',
       ),
       MyRoute(
         child: RichText_Roq(),
         title: ' RichText ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/3_RichText _roq.dart',
       ),
       MyRoute(
         child: Icon_Baisc_Roq(),
         title: 'Icon ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/4_Icon_roq.dart',
       ),
       MyRoute(
         child: Textfield_Baisc_Roq(),
         title: 'Textfield',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/5_Textfield_baisc_roq.dart',
       ),
       MyRoute(
         child: Textfield_Controller_Roq(),
         title: 'Textfield & Controller',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_Cotroller_roq.dart',
       ),
       MyRoute(
         child: Textfield_onChange_Roq(),
         title: 'Textfield & onChange ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_onChange_roq.dart',
       ),
       MyRoute(
         child: ElevatedButton_Roq(),
         title: 'ElevatedButton',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_button_roq.dart',
       ),
       MyRoute(
         child: TextButton_Roq(),
         title: 'TextButton',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/8_TextButton_roq.dart',
       ),
       MyRoute(
         child: ElevatedButton_Roq_Demo(),
         title: 'ElevatedButton & setState',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/9_setState_roq.dart',
       ),
       MyRoute(
         child: IconButton_Baisc_Roq(),
         title: 'IconButton Baisc',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/10_IconButton_baisc_roq.dart',
       ),
       MyRoute(
         child: InkWell_Roq_App(),
         title: 'InkWell',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/11_InkwellButton_roq.dart',
       ),
       MyRoute(
         child: OutlinedButtonMain_Roq(),
         title: 'OutlinedButton',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/12_OutlinedButton_roq.dart',
       ),
       MyRoute(
         child: Buttons_Demo_Roq(),
         title: 'Buttons Demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/13_buttons_Demo_roq.dart',
       ),
       MyRoute(
         child: DropdownButton_Baisc_Roq(),
         title: 'DropdownButton Baisc',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/14_Dropdown_Baisc_roq.dart',
       ),
       MyRoute(
         child: Dropdown_List_Roq(),
         title: 'DropdownButton intList demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/15_Dropdown_List_roq.dart',
       ),
       MyRoute(
         child: DropdownButton_Object_Roq(),
         title: 'DropDownButton list with Object type demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/16_Dropdown_object_roq.dart',
       ),
       MyRoute(
         child: DropdownButton_Main_Demo_2025(),
         title: 'DropdownButton Demo 2025',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/DropdownButton_demo_2025.dart',
       ),
       MyRoute(
         child: PopupMenu_Baisc_Roq(),
         title: 'PopupMenuButton demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart',
       ),
       MyRoute(
         child: PopupMenuButton_intList_Roq(),
         title: 'PopupMenuButton intList demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_1_UI_widgets_roq/18_PopupMenu_List_roq.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect6 Common UI Widgets part2',
+    groupName: 'Lecture 6 • UI Widgets (Part 2)',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: Form_Roq(),
         title: 'Form Login Demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/1_formWidget_roq.dart',
       ),
       MyRoute(
         child: Radio_ListTile_Roq(),
         title: 'Radio in ListTile ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_1_Radio_ListTile_roq.dart',
       ),
       MyRoute(
         child: RadioListTile_Roq(),
         title: 'RadioListTile widget',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_2_RadioListTile_roq.dart',
       ),
       MyRoute(
         child: RadioWidgetDemo_Roq(),
         title: 'RadioWidget Demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_3_RadioForm_objectRoq.dart',
       ),
       MyRoute(
         child: CheckBox_Row_Roq(),
         title: 'CheckBox in Row',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/3_1_CheckboxRow_roq.dart',
       ),
       MyRoute(
         child: CheckboxListTile_Roq(),
         title: 'CheckboxListTile ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart',
       ),
       MyRoute(
         child: Checkbox_MultiSelect_roq(),
         title: 'Checkbox MultiSelect Demo',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_checkBox_roq.dart',
       ),
       MyRoute(
         child: Switch_Roq(),
         title: ' Switch ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/4_1_ switch _roq.dart',
       ),
       MyRoute(
         child: SwitchListTile_Roq(),
         title: ' SwitchListTile ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect6_2_UI_widgets_roq/4_2_SwitchListTile_roq.dart',
       ),
     ],
   ),
 
   MyRouteGroup(
-    groupName: 'Lect7 Navigation & Routing',
+    groupName: 'Lecture 7 • Navigation & Routing',
     icon: Icon(Icons.navigate_next_sharp),
     routes: <MyRoute>[
       MyRoute(
         child: Main_Navigation_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
+        sourceFilePath: 'lib/Lecturs_roq/Lect7_navigation_roq/main_navigation.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
         title: 'Comprehensive Routing',
         description:
         'Comprehensive basics of navigating Flutter using MaterialPageRoute class and Named Routs',
@@ -1256,7 +1256,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: Main_Push_Pop_Ex1_roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
+        sourceFilePath: 'lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/1_main_push_pop_withoutdata_roq.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
         title: 'Routing (push/pop)',
         description:
         'Jumping between pages without send Data by using MaterialPageRoute class',
@@ -1269,7 +1269,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Main_Push_Pop_Ex2_roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
+        'lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/2_main_push_pop_SendData_roq.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
         title: 'Routing (push/pop) with Data',
         description: 'Jumping between pages  and send Data by using Named Routs.',
         links: {
@@ -1280,7 +1280,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: Navig_with_Named_Routes_Only(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
+        sourceFilePath: 'lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/3_Navigation_with_Named_Routes.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_back_w1_roq.dart',
         title: 'Routing Named (pushNamed/pop)',
         description:
         'Jumping between pages without send Data by using Route Named ',
@@ -1293,7 +1293,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Main_Page_Pass_Data_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/nav_pass_arg_to_namedroute.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
         title: 'Routing (Named Routs) with Data ex1',
         description: 'Jumping between pages  and send Data by using Named Routs.',
         links: {
@@ -1305,7 +1305,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Route_With_Send_Data_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',//'${Navigation_roq_routs}/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart',
         title: 'Routing (Named Routs) with Data ex2',
         description: 'Jumping between pages  and send Data by using Named Routs.',
         links: {
@@ -1317,7 +1317,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: HomeScreen_ReturnEx_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
+        'lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/5_Return_data_from_a_screen.dart',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
         title: 'Routes (Return) ex1',
         description: 'Jumping between pages with Return Data.',
         links: {
@@ -1329,7 +1329,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Route_With_Return_Data_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Return_data_from_screen_w1_roq.dart',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
         title: 'Routes (Return) ex2',
         description: 'Jumping between pages with Return Data.',
         links: {
@@ -1341,7 +1341,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Animate_a_widget_across_screens_Roq_Ex(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
+        'lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/6_Hero.dart',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
         title: 'Hero Animation',
         description: 'Animate a widget across screens using Hero widget.',
         links: {
@@ -1353,7 +1353,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: Animate_Across_Screens_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/nav_animate_across_screens.dart',//'${Navigation_roq_routs}/F_Return_data_from_screen_w1_roq.dart',
         title: 'Hero Animation Demo',
         description: 'Animate a widget across screens using Hero widget.',
         links: {
@@ -1366,7 +1366,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: BottomTabbar_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Navi_Bottom_tabBar_Naviroq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Bottom_tabBar_Naviroq.dart',//'${Navigation_roq_routs}/F_Navi_Bottom_tabBar_Naviroq.dart',
         title: 'Bottom TabBar',
         links: {
           'Doc': 'https://docs.flutter.io/flutter/material/TabBar-class.html'
@@ -1374,25 +1374,25 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: Dialogs_Roq(),
-        sourceFilePath:'',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
+        sourceFilePath:'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Dialogs_Navi_roq.dart',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
         title: 'Dialogs',
         description: 'Show some dialoges, pickers as (Time, Date and Date Rang Picker dialog) and baisc Bottom Sheet dialog.',
       ),
       MyRoute(
         child: DialogSamples_Roq(),
-        sourceFilePath:'',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
+        sourceFilePath:'lib/Labs_roq/lab6_navigation_samples_roq/nav_dialogeSamples_roq.dart',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
         title: 'Dialogs  ex2',
         description: 'Show some dialoges as (Single choice, Multichoice,Info, Waring and Add Review) and baisc Bottom Sheet dialog.',
       ),
       MyRoute(
         child: MultiImage_by_imagepicker_Roq_Ex(),
-        sourceFilePath:'',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
+        sourceFilePath:'lib/Labs_roq/lab6_navigation_samples_roq/nav_ImagePicker_multi_roq_Homework.dart',// '${Navigation_roq_routs}/F_Navi_Dialogs_Navi_roq.dart',
         title: 'Picker',
         description: 'Show some  pickers as (single image and multi image pickers).',
       ),
       MyRoute(
         child: DrawerWidget_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Nav_Drawer_roq.dart',
+        sourceFilePath: 'lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_Drawer_roq.dart',//'${Navigation_roq_routs}/F_Nav_Drawer_roq.dart',
         title: 'Navigation Drawer',
         links: {
           'Doc': 'https://docs.flutter.io/flutter/material/Drawer-class.html',
@@ -1400,7 +1400,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: BottomSheet_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navi_BottomSheet_Naviroq.dart',
+        sourceFilePath: 'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_BottomSheet_Naviroq.dart',//'${Navigation_roq_routs}/F_Navi_BottomSheet_Naviroq.dart',
         title: 'Bottom sheet',
         links: {
           'Medium article':
@@ -1410,7 +1410,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: BottomNavigationBar_Roq(),
         sourceFilePath:
-        '',// '${Navigation_roq_routs}/F_Navi_BottomNavigationBar_Naviroq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_BottomNavigationBar_Naviroq.dart',// '${Navigation_roq_routs}/F_Navi_BottomNavigationBar_Naviroq.dart',
         title: 'Bottom navigation bar',
         links: {
           'Doc':
@@ -1419,7 +1419,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: PageViewWidget_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Nav_Drawer_roq.dart',
+        sourceFilePath: 'lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_PageView_roq.dart',//'${Navigation_roq_routs}/F_Nav_Drawer_roq.dart',
         title: 'PageView',
         links: {
           'Doc': '',
@@ -1428,7 +1428,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: PageSelector_Roq(),
         sourceFilePath:
-        '',// '${Navigation_roq_routs}/F_Nav_Page_Selector_Naviroq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_Page_Selector_Naviroq.dart',// '${Navigation_roq_routs}/F_Nav_Page_Selector_Naviroq.dart',
         title: 'Page selector',
         links: {
           'Doc':
@@ -1438,7 +1438,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       MyRoute(
         child: DraggableScrollableSheet_Roq(),
         sourceFilePath:
-        '',//'${Navigation_roq_routs}/F_Nav_draggable_scrollable_sheet_roq.dart',
+        'lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_draggable_scrollable_sheet_roq.dart',//'${Navigation_roq_routs}/F_Nav_draggable_scrollable_sheet_roq.dart',
         title: 'DraggableScrollableSheet',
         description: 'Scrollable sheet similar to Google Maps.',
         links: {'Youtube': 'https://www.youtube.com/watch?v=Hgw819mL_78'},
@@ -1447,14 +1447,14 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
 
       MyRoute(
         child: RailNavBar_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navigation_Rail_roq.dart',
+        sourceFilePath: 'lib/Labs_roq/lab6_navigation_samples_roq/F_Navigation_Rail_roq.dart',//'${Navigation_roq_routs}/F_Navigation_Rail_roq.dart',
         title: 'Navigation Rail',
         description: '',
         links: {'Youtube': 'https://www.youtube.com/......'},
       ),
       MyRoute(
         child: WillPopScope_Roq(),
-        sourceFilePath: '',//'${Navigation_roq_routs}/F_Navi_Will_pop_scop_roq.dart',
+        sourceFilePath: 'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Will_pop_scop_roq.dart',//'${Navigation_roq_routs}/F_Navi_Will_pop_scop_roq.dart',
         title: 'WillPopScope',
         description: '',
         links: {
@@ -1464,7 +1464,7 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
       ),
       MyRoute(
         child: TabBarWidget_Ex_Roq(),
-        sourceFilePath:'',// '${Navigation_roq_routs}/F_Navi_Examples_roq.dart',
+        sourceFilePath:'lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Examples_roq.dart',// '${Navigation_roq_routs}/F_Navi_Examples_roq.dart',
         title: 'Navigation Demo',
         description: '',
         links: {
@@ -1475,38 +1475,38 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect9 All Local Storages Wayes',
+    groupName: 'Lecture 9 • Local Storage',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: Main_StoreData_Offline_Roq(),
         title: 'All Local Storages Wayes',
         description: 'All wayes (SharedPref ,File(JSON-CSV-TXT) , SQLite) to store data offline in Flutter',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect9_LocalStorage_All_Wayes_roq/main_ways_storedata_ffoline_roq.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect10 ِِAPI with Flutter',
+    groupName: 'Lecture 10 • APIs with Flutter',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: Main_API_All_Roq(),
         title: 'API with Flutter',
         description: 'All wayes (Offline and Online) to work with API in Flutter',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect10_api_roq/main_api.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect11 | State Management(Provider)',
+    groupName: 'Lecture 11 • State Management (Provider)',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: Without_StateManagment_Roq(),
         title: 'Without StateManagment',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/1_without_SM_roq.dart',
       ),
       MyRoute(
         child: With_SM_setState_Roq(),
@@ -1515,121 +1515,121 @@ const kMy_LectAppRoutsUI = <MyRouteGroup>[
             They consist of two classes: `StatefulWidget` and `State`. 
             The `StatefulWidget` represents the immutable part of the widget, 
             while the `State` object holds the mutable state data.''',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/2_with_SM_setState_roq.dart',
       ),
       MyRoute(
         child: With_SM_ChangNoti_Consum_Roq(),
         title: 'ChangeNotifierProvider And Consumer',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/3_1_SM_changNoti_consu_roq.dart',
       ),
       MyRoute(
         child: With_SM_ChangNoti_Consum_ExRoq(),
         title: 'ChangeNotifierProvider And Consumer Example',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/3_2_SM_changNoti_Consu_ex_roq.dart',
       ),
       MyRoute(
         child: SM_ScopeProviders_Roq(),
         title: 'Scope Providers',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/5_SM_scopeProvider_roq.dart',
       ),
       MyRoute(
         child: SM_without_Selector_Roq(),
         title: 'Without Use Selector ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/6_1_SM_without_selector_roq.dart',
       ),
       MyRoute(
         child: SM_with_Selector_Roq(),
         title: 'With Use Selector ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/6_2_SM_with_selector_roq.dart',
       ),
       MyRoute(
         child: SM_Provider_of_Context_Roq(),
         title: 'Provider of(context) ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/7_SM_provider_of_roq.dart',
       ),
       MyRoute(
         child: SM_Context_read_watch_Roq(),
         title: 'context.watch() AND context.read()',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/8_SM_context_read_watch_roq.dart',
       ),
       MyRoute(
         child: SM_Provider_vs_ChangNotif_Roq(),
         title: 'Provider vs ChangeNotifyProvider ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/9_SM_ProviderVsChangNoti_roq.dart',
       ),
       MyRoute(
         child: SM_MultiProvider_Roq(),
         title: 'MultiProviders',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/10_SM_multiProvider_roq.dart',
       ),
       MyRoute(
         child: SampleProvider_of_Context_Roq(),
         title: 'Sample1 : Sample Provider.of(context) ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/7_SM_provider_of_sampleroq/7_SM_main_roq.dart',
       ),
       MyRoute(
         child: MainAddCart_Roq(),
         title: 'Sample2 : Main Shopping Cart ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/SM_addTocart_sample_roq/main_ShoppingCart.dart',
       ),
       MyRoute(
         child: CartSample_MyApp(),
         title: 'Sample3 : More Detailes Shopping Cart ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/Cart_Samples_roq/main_cartSample.dart',
       ),
       MyRoute(
         child: MainShoppingCart_Roq(),
         title: 'Sample4 : Advance Main Shopping Cart ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/advance_ShoppingCart_sample_roq/main_advanceShoppingCart.dart',
       ),
     ],
   ),
   MyRouteGroup(
-    groupName: 'Lect13 Resposive and Adaptive',
+    groupName: 'Lectures 13–14 • Responsive UI & Theming',
     icon: Icon(Icons.widgets),
     routes: <MyRoute>[
       MyRoute(
         child: MediaQuery_Roq(),
         title: 'MediaQuery ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/MediaQuery_roq.dart',
       ),
       MyRoute(
         child: LayoutBuilder_Roq(),
         title: 'LayoutBuilder ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/LayoutBuilder_roq.dart',
       ),
       MyRoute(
         child: LayoutBilder2_Roq(),
         title: 'LayoutBuilder ',
         description: '',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/LayoutBuilder2_roq.dart',
       ),
       MyRoute(
         child: ExpensesApp_Roq(),
         title: 'Personal Expenses UI Sample ',
         description: 'Personal Expenses Flutter App will apply Responsive and Adaptive',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/expensesDemo_ofResAdap_roq/expensesDemoMain_roq.dart',
       ),
       MyRoute(
         child: ExpenseTheme_Roq(),
         title: 'Personal Expenses UI Sample ',
         description: 'Personal Expenses Flutter App will apply Theme',
-        sourceFilePath: '',
+        sourceFilePath: 'lib/Lecturs_roq/Lect14_Theming_roq/mainThem_roq.dart',
       ),
     ],
   ),

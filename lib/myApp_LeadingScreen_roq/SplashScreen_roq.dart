@@ -72,10 +72,21 @@ class SplashScreenState extends State<SplashScreen_Roq>
                         fit: BoxFit.scaleDown,
                       )),*/
                   Container(height: 20),
-                  Text(" Version 1.0.0", style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                     color: Colors.grey[500]
-                  )),
+                  Column(
+                    children: [
+                      Text("Eng: Ruqaih Hussein Salman", style: TextStyle(
+                        fontStyle: FontStyle.normal,
+                        color: Colors.grey.shade600,
+                        fontWeight:  FontWeight.bold
+                      )),
+                      SizedBox(height: 10,),
+                      Text(" Version 1.0.0", style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                         color: Colors.grey[500]
+                      )),
+                      SizedBox(height: 10,),
+                    ],
+                  ),
                   Container(height: 20),
                   Container( height: 5, width: 80,
                     child: LinearProgressIndicator(
@@ -90,13 +101,14 @@ class SplashScreenState extends State<SplashScreen_Roq>
             new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 10,),
                 new Image.asset(
                   //'assets_roq/lect_assets_roq/images_roq/logo_roq.png',
                   'assets_roq/assets_lect_roq/images_roq/logo_roq.png',
                   width: animation.value * 250,
                   height: animation.value * 250,
                 ),
-
+                SizedBox(height: 100,),
               ],
             ),
           ],

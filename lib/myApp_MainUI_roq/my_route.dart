@@ -3,9 +3,7 @@ import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
-import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:flutter_highlight/themes/github.dart';
-import 'package:flutter_highlight/themes/vs.dart';
+import 'code_viewer_roq.dart';
 import 'package:flutter/services.dart';
 
 import '../myApp_Data_Settings_roq/my_app_settings.dart';
@@ -49,12 +47,11 @@ class MyRoute extends StatelessWidget {
     return _title ?? this.routeName;
   }
 
-  Future<String> _loadSourceCode() async {
-    try {
-      return await rootBundle.loadString(sourceFilePath);
-    } catch (e) {
-      return '// Unable to load source code from: $sourceFilePath\n// Error: $e';
+  Future<String> _loadSourceCode() {
+    if (sourceFilePath.isEmpty) {
+      return Future<String>.error('Source path has not been configured.');
     }
+    return rootBundle.loadString(sourceFilePath);
   }
 
   @override
@@ -271,62 +268,10 @@ class MyRoute extends StatelessWidget {
                             );
                           }
 
-                          return Container(
-                            margin: EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: isDarkMode ? Colors.grey[900]! : Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 8,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                SingleChildScrollView(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16),
-                                    child: HighlightView(
-                                      snapshot.data!,
-                                      language: 'dart',
-                                      theme: isDarkMode ? vsTheme : githubTheme,
-                                      padding: EdgeInsets.all(16),
-                                      textStyle: TextStyle(
-                                        fontFamily: 'Roboto Mono',
-                                        fontSize: 13,
-                                        height: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 12,
-                                  right: 12,
-                                  child: FloatingActionButton.small(
-                                    onPressed: () {
-                                      Clipboard.setData(
-                                          ClipboardData(text: snapshot.data!));
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
-                                          content: Text('Code copied to clipboard'),
-                                          backgroundColor: Colors.green,
-                                          behavior: SnackBarBehavior.floating,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                    backgroundColor: pPrimaryColor,
-                                    child: Icon(Icons.copy, size: 18),
-                                    elevation: 2,
-                                  ),
-                                ),
-                              ],
-                            ),
+                          return RoqCodeViewer(
+                            source: snapshot.data!,
+                            sourcePath: sourceFilePath,
+                            isDarkMode: isDarkMode,
                           );
                         },
                       ),

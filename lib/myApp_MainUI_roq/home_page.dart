@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     BottomNavigationBarItem(
       // backgroundColor: Colors.blue,
       icon: Icon(Icons.all_inbox),
-      label: 'Lecters',
+      label: 'Lects',
     ),
     BottomNavigationBarItem(
       //backgroundColor: Colors.blueAccent,
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //backgroundColor: Colors.blueAccent,
       icon: Icon(Icons.quiz),
       //label: 'Advanced',
-      label: 'Qize',
+      label: 'Quiz',
     ),
     ////////////////////////////// My Code
     /*BottomNavigationBarItem(

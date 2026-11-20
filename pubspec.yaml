@@ -99,6 +99,85 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    # Lecture source files for the Source Code tab (Android Studio-style viewer).
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Examples_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/nav_dialogeSamples_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/nav_pass_arg_to_namedroute.dart
+    - lib/Lecturs_roq/Lect10_api_roq/main_api.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/10_SM_multiProvider_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/1_without_SM_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/2_with_SM_setState_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/3_1_SM_changNoti_consu_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/3_2_SM_changNoti_Consu_ex_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/5_SM_scopeProvider_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/6_1_SM_without_selector_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/6_2_SM_with_selector_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/7_SM_provider_of_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/8_SM_context_read_watch_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_concepts_roq/9_SM_ProviderVsChangNoti_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/7_SM_provider_of_sampleroq/7_SM_main_roq.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/Cart_Samples_roq/main_cartSample.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/SM_addTocart_sample_roq/main_ShoppingCart.dart
+    - lib/Lecturs_roq/Lect11_statmanagment_roq/stateManagment_samples_roq/advance_ShoppingCart_sample_roq/main_advanceShoppingCart.dart
+    - lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/LayoutBuilder2_roq.dart
+    - lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/LayoutBuilder_roq.dart
+    - lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/MediaQuery_roq.dart
+    - lib/Lecturs_roq/Lect13_Responsivity_Adaptiveness_roq/expensesDemo_ofResAdap_roq/expensesDemoMain_roq.dart
+    - lib/Lecturs_roq/Lect14_Theming_roq/mainThem_roq.dart
+    - lib/Lecturs_roq/Lect2_layout_widgets_roq/gridViewDynamic_roq.dart
+    - lib/Lecturs_roq/Lect2_layout_widgets_roq/listView_Builder_roq.dart
+    - lib/Lecturs_roq/Lect2_layout_widgets_roq/listView_roq.dart
+    - lib/Lecturs_roq/Lect2_layout_widgets_roq/stack_withPosition_roq.dart
+    - lib/Lecturs_roq/Lect2_layout_widgets_roq/stack_withoutPosition_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/1_scaffold_FAB_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/2_scaffold_FAB_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/FAB_roq/3_scaffold_FAB_extend_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/Flushbar_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/SnackBar_roq/0_scaffold_SnackBari_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/SnackBar_roq/1_scaffold_SnackBarinVar_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/ToastCustom_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/Toast_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/0_scaffold_bottomNavigationBar_items_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/1_scaffold_bottomNavigationBar_onTap_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomNavigationBar_roq/2_scaffold_bottomNavigationBar_curruntindex_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_Modalbottomsheet_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/bottomsheet_roq/scaffold_prisistentBottomsheet_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_adaptive_Demo1_roq.dart
+    - lib/Lecturs_roq/Lect3_MaterialApp_Scaffold_widgets_roq/scaffold_demos_roq/scaffold_allPro_Demo1_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/10_IconButton_baisc_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/11_InkwellButton_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/12_OutlinedButton_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/13_buttons_Demo_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/14_Dropdown_Baisc_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/15_Dropdown_List_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/16_Dropdown_object_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/17_PopupMenu_Baisc_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/18_PopupMenu_List_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/1_Text_Baisc_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/2_Text_morPro_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/3_RichText _roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/4_Icon_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/5_Textfield_baisc_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_Cotroller_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/6_Textfield_onChange_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/8_TextButton_roq.dart
+    - lib/Lecturs_roq/Lect6_1_UI_widgets_roq/9_setState_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/1_formWidget_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_1_Radio_ListTile_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_2_RadioListTile_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/2_3_RadioForm_objectRoq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/3_1_CheckboxRow_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/3_2_CheckboxListTitle_roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/4_1_ switch _roq.dart
+    - lib/Lecturs_roq/Lect6_2_UI_widgets_roq/4_2_SwitchListTile_roq.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/main_navigation.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/1_main_push_pop_withoutdata_roq.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/2_main_push_pop_SendData_roq.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/3_Navigation_with_Named_Routes.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/5_Return_data_from_a_screen.dart
+    - lib/Lecturs_roq/Lect7_navigation_roq/nav_baiscs_roq/6_Hero.dart
+    - lib/Lecturs_roq/Lect9_LocalStorage_All_Wayes_roq/main_ways_storedata_ffoline_roq.dart
+    - lib/myApp_MainUI_roq/about.dart
     # Lab source files used by the Source Code tab (Flutter assets are not recursive).
     - lib/Labs_roq/Lab10_offline_sqlf_projects_roq/Dogs_complex_relational_datalocally_roq/main_proj_Complex_Dogs_roq.dart
     - lib/Labs_roq/Lab10_offline_sqlf_projects_roq/Expense_Manager_Roq/main_proj_EM_roq.dart
