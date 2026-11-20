@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'code_viewer_roq.dart';
+import 'explanation_panel_roq.dart';
 import 'package:flutter/services.dart';
 
 import '../myApp_Data_Settings_roq/my_app_settings.dart';
@@ -108,7 +109,7 @@ class MyRoute extends StatelessWidget {
             );
           } else {
             return DefaultTabController(
-              length: 2,
+              length: 3,
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -130,15 +131,10 @@ class MyRoute extends StatelessWidget {
                       borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
                     ),
                     title: TabBar(
-                      tabs: [
-                        Tab(
-                          icon: Icon(Icons.preview, size: 20),
-                          text: 'Preview',
-                        ),
-                        Tab(
-                          icon: Icon(Icons.code, size: 20),
-                          text: 'Source Code',
-                        ),
+                      tabs: const <Tab>[
+                        Tab(text: 'Preview'),
+                        Tab(text: 'Source Code'),
+                        Tab(text: 'Guide'),
                       ],
                       indicator: UnderlineTabIndicator(
                         borderSide: BorderSide(
@@ -275,6 +271,12 @@ class MyRoute extends StatelessWidget {
                           );
                         },
                       ),
+                      RoqExplanationPanel(
+                        routeName: routeName,
+                        title: title,
+                        description: description,
+                        sourcePath: sourceFilePath,
+                      ),
                     ],
                   ),
                 ),
@@ -299,7 +301,7 @@ class MyRoute extends StatelessWidget {
   }
 
   Widget? _getAppBarLeading(BuildContext context) {
-    if (kIsOnMobile || this.routeName == Navigator.defaultRouteName) {
+    if (this.routeName == Navigator.defaultRouteName) {
       return null;
     }
     return Container(
@@ -333,6 +335,26 @@ class MyRoute extends StatelessWidget {
           ),
         ),
       );
+    }
+
+    // Quick theme switch is always reachable on the catalog home screen.
+    if (routeName == Navigator.defaultRouteName) {
+      actions.add(IconButton(
+        tooltip: settings.isDarkMode ? 'Switch to light mode' : 'Switch to dark mode',
+        icon: Icon(settings.isDarkMode ? Icons.light_mode_outlined : Icons.dark_mode_outlined),
+        onPressed: () => settings.setDarkMode(!settings.isDarkMode),
+      ));
+    }
+
+    // Mark an example completed without leaving its preview.
+    if (this.routeName != Navigator.defaultRouteName) {
+      actions.add(IconButton(
+        tooltip: settings.isRouteCompleted(routeName)
+          ? 'Mark as not completed' : 'Mark as completed',
+        icon: Icon(settings.isRouteCompleted(routeName)
+          ? Icons.check_circle : Icons.check_circle_outline),
+        onPressed: () => settings.toggleRouteCompleted(routeName),
+      ));
     }
 
     // Star status for non-home pages

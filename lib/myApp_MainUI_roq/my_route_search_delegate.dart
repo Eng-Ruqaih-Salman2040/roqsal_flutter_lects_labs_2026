@@ -1,93 +1,93 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:substring_highlight/substring_highlight.dart';
 
 import '../myApp_Data_Settings_roq/my_app_settings.dart';
 import 'my_app_routes.dart'
     show kAllRoutes, kRouteNameToRoute, kRouteNameToRouteGroup;
-
 import 'my_route.dart';
 
-/// Delegate class to search pages in the list of
+/// Search titles, descriptions and their lecture/lab group, with category filters.
 class MyRouteSearchDelegate extends SearchDelegate<String> {
+  MyRouteSearchDelegate() : super(searchFieldLabel: 'Search lectures, labs and examples');
+  String _type = 'All';
+
   @override
   ThemeData appBarTheme(BuildContext context) => Theme.of(context);
 
   @override
-  List<Widget> buildActions(BuildContext context) {
-    return <Widget>[
-      if (this.query.isNotEmpty)
-        IconButton(
-          tooltip: 'Clear',
-          icon: const Icon(Icons.clear),
-          onPressed: () => this.query = '',
-        )
-    ];
-  }
+  List<Widget> buildActions(BuildContext context) => <Widget>[
+    if (query.isNotEmpty) IconButton(
+      tooltip: 'Clear search', icon: const Icon(Icons.clear),
+      onPressed: () => query = '',
+    ),
+  ];
 
   @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      tooltip: 'Back',
-      icon: const Icon(Icons.arrow_back),
-      onPressed: () => this.close(context, ''),
-    );
-  }
+  Widget buildLeading(BuildContext context) => IconButton(
+    tooltip: 'Back', icon: const Icon(Icons.arrow_back),
+    onPressed: () => close(context, ''),
+  );
 
   @override
-  Widget buildResults(BuildContext context) {
-    // Since we never call showResults() we don't need to impl this function.
-    return Container();
-  }
+  Widget buildResults(BuildContext context) => buildSuggestions(context);
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // List<String> suggestions = _history;
-    Iterable<MyRoute> suggestions = [
-      for (final routeName in Provider.of<MyAppSettings>(context).searchHistory)
-        kRouteNameToRoute[routeName]!
-    ];
-    if (this.query.isNotEmpty) {
-      suggestions = kAllRoutes
-          .where((route) =>
-              route.title.toLowerCase().contains(query.toLowerCase()) ||
-              route.description.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    }
-    return _buildSuggestiofnsList(suggestions);
-  }
-
-  Widget _buildSuggestiofnsList(Iterable<MyRoute> suggestions) {
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (BuildContext context, int i) {
-        final route = suggestions.elementAt(i);
-        final routeGroup = kRouteNameToRouteGroup[route.routeName]!;
-        return ListTile(
-          leading: query.isEmpty ? const Icon(Icons.history) : routeGroup.icon,
-          title: SubstringHighlight(
-            text: '${routeGroup.groupName}/${route.title}',
-            term: query,
-            textStyle: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          subtitle: route.description.isEmpty
-              ? null
-              : SubstringHighlight(
-                  text: route.description,
-                  term: query,
-                  textStyle: Theme.of(context).textTheme.bodyMedium!,
-                ),
-          onTap: () {
-            Provider.of<MyAppSettings>(context, listen: false)
-                .addSearchHistory(route.routeName);
-            Navigator.of(context).popAndPushNamed(route.routeName);
-          },
-          trailing: const Icon(Icons.keyboard_arrow_right),
-        );
-      },
-    );
+    return StatefulBuilder(builder: (BuildContext context, StateSetter update) {
+      final MyAppSettings settings = context.watch<MyAppSettings>();
+      final String term = query.trim().toLowerCase();
+      final List<MyRoute> base = term.isEmpty
+        ? <MyRoute>[
+            for (final String name in settings.searchHistory)
+              if (kRouteNameToRoute[name] != null) kRouteNameToRoute[name]!,
+          ]
+        : kAllRoutes.where((MyRoute route) {
+            final String section = kRouteNameToRouteGroup[route.routeName]?.groupName ?? '';
+            return route.title.toLowerCase().contains(term) ||
+              route.description.toLowerCase().contains(term) ||
+              section.toLowerCase().contains(term);
+          }).toList();
+      final List<MyRoute> filtered = base.where((MyRoute route) {
+        final String section = (kRouteNameToRouteGroup[route.routeName]?.groupName ?? '')
+            .toLowerCase();
+        return _type == 'All' ||
+          (_type == 'Lects' && section.contains('lecture')) ||
+          (_type == 'Labs' && section.startsWith('lab'));
+      }).toList();
+      return Column(children: <Widget>[
+        SingleChildScrollView(scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          child: Row(children: <Widget>[
+            for (final String option in <String>['All', 'Lects', 'Labs'])
+              Padding(padding: const EdgeInsets.only(right: 8),
+                child: ChoiceChip(label: Text(option), selected: _type == option,
+                  onSelected: (_) => update(() => _type = option))),
+          ])),
+        Expanded(child: filtered.isEmpty
+          ? Center(child: Padding(padding: const EdgeInsets.all(24),
+            child: Text(term.isEmpty ? 'Search by widget, topic, or lab number.' :
+              'No matching examples found.', textAlign: TextAlign.center)))
+          : ListView.builder(
+              itemCount: filtered.length,
+              itemBuilder: (BuildContext context, int index) {
+                final MyRoute route = filtered[index];
+                final group = kRouteNameToRouteGroup[route.routeName];
+                return ListTile(
+                  leading: group?.icon ?? const Icon(Icons.code),
+                  title: Text(route.title),
+                  subtitle: Text(group?.groupName ?? route.description,
+                    maxLines: 2, overflow: TextOverflow.ellipsis),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () {
+                    settings.markRouteOpened(route.routeName);
+                    final NavigatorState navigator = Navigator.of(context);
+                    close(context, route.routeName);
+                    navigator.pushNamed(route.routeName);
+                  },
+                );
+              },
+            )),
+      ]);
+    });
   }
 }

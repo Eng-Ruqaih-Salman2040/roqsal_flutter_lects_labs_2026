@@ -1,117 +1,90 @@
 import 'dart:async';
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../myApp_Data_Settings_roq/constants.dart';
+import '../myApp_Data_Settings_roq/my_app_settings.dart';
 
-
-
-
+/// First visible screen: readable branding and a short, cancellable timer.
 class SplashScreen_Roq extends StatefulWidget {
-
-  @override
-  SplashScreenState createState() => new SplashScreenState();
-
   const SplashScreen_Roq({super.key});
+  @override
+  State<SplashScreen_Roq> createState() => _SplashScreenRoqState();
 }
 
-class SplashScreenState extends State<SplashScreen_Roq>
-    with SingleTickerProviderStateMixin {
-  var _visible = true;
-
-  late AnimationController animationController;
-  late Animation<double> animation;
-
-  startTime() async {
-    var _duration = new Duration(seconds: 10);
-    return new Timer(_duration, navigationPage);
-  }
-
-  void navigationPage() {
-    Navigator.of(context).pushReplacementNamed(IntroScreen_rout_Roq);
-  }
+class _SplashScreenRoqState extends State<SplashScreen_Roq> {
+  Timer? _timer;
 
   @override
   void initState() {
     super.initState();
-    animationController = new AnimationController(
-        vsync: this, duration: new Duration(seconds: 5));
-    animation =
-    new CurvedAnimation(parent: animationController, curve: Curves.easeOut);
-
-    animation.addListener(() => this.setState(() {}));
-    animationController.forward();
-
-    setState(() {
-      _visible = !_visible;
+    _timer = Timer(const Duration(milliseconds: 2200), () {
+      if (!mounted) return;
+      final bool seen = context.read<MyAppSettings>().introCompleted;
+      Navigator.of(context).pushReplacementNamed(
+        seen ? flutterMain_rout_Roq : IntroScreen_rout_Roq,
+      );
     });
-    startTime();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colors = Theme.of(context).colorScheme;
     return Scaffold(
-      body: Container(
-       //=> color: Colors.white,
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(bottom: 180.0),
-              child: new Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  /*Padding(
-                      padding: EdgeInsets.only(bottom: 30.0),
-                      child: new Image.asset(
-                        'assets/images/powered_by.png',
-                        height: 25.0,
-                        fit: BoxFit.scaleDown,
-                      )),*/
-                  Container(height: 20),
-                  Column(
-                    children: [
-                      Text("Eng: Ruqaih Hussein Salman", style: TextStyle(
-                        fontStyle: FontStyle.normal,
-                        color: Colors.grey.shade600,
-                        fontWeight:  FontWeight.bold
-                      )),
-                      SizedBox(height: 10,),
-                      Text(" Version 1.0.0", style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                         color: Colors.grey[500]
-                      )),
-                      SizedBox(height: 10,),
-                    ],
-                  ),
-                  Container(height: 20),
-                  Container( height: 5, width: 80,
-                    child: LinearProgressIndicator(
-                      //=>valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1E88E5)),
-                      backgroundColor: Colors.grey[300],
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
-            new Column(
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(28),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 10,),
-                new Image.asset(
-                  //'assets_roq/lect_assets_roq/images_roq/logo_roq.png',
-                  'assets_roq/assets_lect_roq/images_roq/logo_roq.png',
-                  width: animation.value * 250,
-                  height: animation.value * 250,
+                Container(
+                  height: 104,
+                  width: 104,
+                  padding: const EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                    color: colors.primaryContainer,
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                  child: Image.asset(
+                    'assets_roq/assets_lect_roq/images_roq/logo_roq.png',
+                    errorBuilder: (_, __, ___) =>
+                        Icon(Icons.code_rounded, size: 58, color: colors.primary),
+                  ),
                 ),
-                SizedBox(height: 100,),
+                const SizedBox(height: 28),
+                Text('Flutter Learning Hub',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: colors.primary,
+                    )),
+                const SizedBox(height: 12),
+                Text('Eng Ruqaih Salman',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    )),
+                const SizedBox(height: 10),
+                Text('Lectures • Labs • Practice • Quizzes',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyMedium),
+                const SizedBox(height: 44),
+                SizedBox(width: 120, child: LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(8),
+                )),
+                const SizedBox(height: 16),
+                Text(APP_VERSION, style: Theme.of(context).textTheme.labelSmall),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

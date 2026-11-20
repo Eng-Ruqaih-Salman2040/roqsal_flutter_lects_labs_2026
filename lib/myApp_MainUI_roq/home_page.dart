@@ -1,284 +1,210 @@
-import 'package:badges/badges.dart' as badge;
-import 'package:badges/badges.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
-
 import '../myApp_Data_Settings_roq/my_app_settings.dart';
-import '../myApp_Data_Settings_roq/thems_roq.dart';
-//import '../myApp_ExercisesRouts_roq/flutter_ExercisesQuestion_roq.dart';
-//import '../myApp_Home_roq/flutter_quiz_roq/flutterQuiz_Main_Screen_Roq.dart';
 import 'my_app_routes.dart'
+    show MyRouteGroup, kAboutRoute, kMy_LabAppRoutsUI, kMy_LectAppRoutsUI,
+         kAllRoutes, kRouteNameToRoute;
+import 'my_route.dart';
+import 'study_content_roq.dart';
 
-   // show MyRouteGroup, kAboutRoute, kMyAppRoutesAdvance, kMyAppRoutesBasic, kMyAppRoutesDemos, kMyAppRoutesUI;
-    show MyRouteGroup, kAboutRoute,kMy_LabAppRoutsUI, kMy_LectAppRoutsUI, kMyAppRoutesProject;
-
-
-import './my_route.dart';
-
+/// Five clear primary destinations; exercises and quizzes share Practice.
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+  const MyHomePage({super.key});
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
   static _MyHomePageState? of(BuildContext context) =>
       context.findAncestorStateOfType<_MyHomePageState>();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-   var demotitle=[];
-  static const List<BottomNavigationBarItem> _kBottmonNavBarItems =
-  <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      // backgroundColor: Colors.blue,
-      icon: Icon(Icons.all_inbox),
-      label: 'Lects',
-    ),
-    BottomNavigationBarItem(
-      //backgroundColor: Colors.blueAccent,
-      icon: Icon(Icons.power),
-      //label: 'Advanced',
-      label: 'Labs',
-    ),
-    BottomNavigationBarItem(
-      //backgroundColor: Colors.blueAccent,
-      icon: Icon(Icons.developer_mode),
-      //label: 'Advanced',
-      label: 'Demos',
-    ),
-    BottomNavigationBarItem(
-      //backgroundColor: Colors.blueAccent,
-      icon: Icon(Icons.integration_instructions),
-      //label: 'Advanced',
-      label: 'Exercises',
-    ),
-    BottomNavigationBarItem(
-      //backgroundColor: Colors.blueAccent,
-      icon: Icon(Icons.quiz),
-      //label: 'Advanced',
-      label: 'Quiz',
-    ),
-    ////////////////////////////// My Code
-    /*BottomNavigationBarItem(
-      //backgroundColor: Colors.indigo,
-      icon: Icon(Icons.tv),
-      label: 'Samples',
-    ),*/
-    ///////////////////////////////////
-    BottomNavigationBarItem(
-      //backgroundColor: Colors.indigo,
-      icon: Icon(Icons.star),
-      label: 'Bookmarks',
-    ),
-  ];
-
   int _currentTabIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    //show MyRouteGroup, kAboutRoute,kMyAppRoutesUI, kMyAppRoutesDemos, kMyAppRoutesProject;
-    final List<Widget> UILab_Flutter_roq = <Widget>[
-      for (final MyRouteGroup group in kMy_LabAppRoutsUI)
-        _myRouteGroupToExpansionTile(group),
-    ];
-    final List<Widget> UILect_Flutter_roq = <Widget>[
-      for (final MyRouteGroup group in kMy_LectAppRoutsUI)
-        _myRouteGroupToExpansionTile(group),
-    ];
-    final List<Widget> ProjectssFlutter_roq = <Widget>[
-      for (final MyRouteGroup group in kMyAppRoutesProject)
-        _myRouteGroupToExpansionTile(group),
-    ];
-   /* final List<Widget> QuizeDart_roq = <Widget>[
-      for (final MyRouteGroup group in kMyAppRoutesQuiz)
-        _myRouteGroupToExpansionTile(group),
-    ];*/
-
-    final bookmarkAndAboutDemos = <Widget>[
-      for (final MyRoute route
-      in Provider.of<MyAppSettings>(context).starredRoutes)
-        _myRouteToListTile(route, leading: const Icon(Icons.bookmark)),
-      _myRouteToListTile(kAboutRoute, leading: const Icon(Icons.info)),
-    ];
-    //double _width = MediaQuery.of(context).size.width;
+    final MyAppSettings settings = context.watch<MyAppSettings>();
     return Scaffold(
-      body: IndexedStack(
-        index: _currentTabIndex,
-        children: <Widget>[
-          ListView(children: UILect_Flutter_roq),
-          ListView(children: UILab_Flutter_roq),
-          ListView(children: ProjectssFlutter_roq),
-          const Center(child: Text('Exercises will appear here when added.')),
-          const Center(child: Text('Quizzes will appear here when added.')),
-          ListView(children: bookmarkAndAboutDemos),
-
+      body: IndexedStack(index: _currentTabIndex, children: <Widget>[
+        _catalogList('Lectures', kMy_LectAppRoutsUI, settings,
+          key: const PageStorageKey<String>('lectures')),
+        _catalogList('Hands-on labs', kMy_LabAppRoutsUI, settings,
+          key: const PageStorageKey<String>('labs')),
+        _demosList(settings),
+        const RoqPracticeHub(),
+        _savedList(settings),
+      ]),
+      bottomNavigationBar: NavigationBar(
+        height: 73,
+        selectedIndex: _currentTabIndex,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        onDestinationSelected: (int index) =>
+          setState(() => _currentTabIndex = index),
+        destinations: const <NavigationDestination>[
+          NavigationDestination(icon: Icon(Icons.menu_book_outlined),
+            selectedIcon: Icon(Icons.menu_book), label: 'Lects'),
+          NavigationDestination(icon: Icon(Icons.science_outlined),
+            selectedIcon: Icon(Icons.science), label: 'Labs'),
+          NavigationDestination(icon: Icon(Icons.widgets_outlined),
+            selectedIcon: Icon(Icons.widgets), label: 'Demos'),
+          NavigationDestination(icon: Icon(Icons.assignment_outlined),
+            selectedIcon: Icon(Icons.assignment), label: 'Practice'),
+          NavigationDestination(icon: Icon(Icons.bookmark_outline),
+            selectedIcon: Icon(Icons.bookmark), label: 'Saved'),
         ],
       ),
-      bottomNavigationBar:
-    Container(
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-    /*borderRadius: BorderRadius.only(
-    topRight: Radius.circular(40),
-    ),*/
-   /* border: Border.all(
-    width: 0.5,
-    //color: Colors.green,
-    style: BorderStyle.solid,
-    )*/
+    );
+  }
+
+  Widget _catalogList(String heading, List<MyRouteGroup> groups,
+      MyAppSettings settings, {Key? key}) {
+    return ListView(key: key, padding: const EdgeInsets.fromLTRB(12, 12, 12, 20),
+      children: <Widget>[
+        _welcomeCard(heading, settings),
+        const SizedBox(height: 8),
+        for (final MyRouteGroup group in groups) _groupCard(group, settings),
+      ],
+    );
+  }
+
+  Widget _welcomeCard(String heading, MyAppSettings settings) {
+    final ColorScheme colors = Theme.of(context).colorScheme;
+    final int total = settings.totalRouteCount;
+    final int complete = settings.completedCount;
+    final MyRoute? recent = settings.lastOpenedRoute;
+    return Card(
+      color: colors.primaryContainer,
+      child: Padding(padding: const EdgeInsets.all(16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+          Text(heading, style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            color: colors.onPrimaryContainer, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 6),
+          Text('Learn with examples by Eng Ruqaih Salman',
+            style: TextStyle(color: colors.onPrimaryContainer)),
+          const SizedBox(height: 16),
+          LinearProgressIndicator(
+            value: total == 0 ? 0 : complete / total,
+            backgroundColor: colors.surface.withOpacity(0.7),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          const SizedBox(height: 6),
+          Text('$complete / $total examples completed',
+            style: TextStyle(color: colors.onPrimaryContainer)),
+          if (recent != null) ...<Widget>[
+            const SizedBox(height: 12),
+            FilledButton.tonalIcon(
+              icon: const Icon(Icons.play_arrow_rounded),
+              label: Text('Continue: ${recent.title}',
+                maxLines: 1, overflow: TextOverflow.ellipsis),
+              onPressed: () => _openRoute(recent, settings),
+            ),
+          ],
+        ]),
+      ),
+    );
+  }
+
+  Widget _groupCard(MyRouteGroup group, MyAppSettings settings) {
+    final int completed = group.routes
+      .where((MyRoute r) => settings.isRouteCompleted(r.routeName)).length;
+    return Card(
+      margin: const EdgeInsets.only(bottom: 8),
+      clipBehavior: Clip.antiAlias,
+      child: ExpansionTile(
+        key: PageStorageKey<String>(group.groupName),
+        leading: group.icon,
+        title: Text(group.groupName, style: const TextStyle(fontWeight: FontWeight.w700)),
+        subtitle: Text('$completed / ${group.routes.length} completed'),
+        children: <Widget>[
+          for (final MyRoute route in group.routes) _routeTile(route, settings),
+        ],
+      ),
+    );
+  }
+
+  Widget _routeTile(MyRoute route, MyAppSettings settings) => ListTile(
+    contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+    leading: Icon(
+      settings.isRouteCompleted(route.routeName) ? Icons.check_circle :
+        Icons.play_circle_outline,
+      color: settings.isRouteCompleted(route.routeName)
+        ? Colors.green : Theme.of(context).colorScheme.primary,
     ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ),
-          child: BottomNavigationBar(
-            items: _kBottmonNavBarItems,
-            selectedIconTheme: IconThemeData(color: pPrimaryColor),
-            selectedItemColor:  pPrimaryColor,
-            showUnselectedLabels:true,
-            currentIndex: _currentTabIndex,
-            type: BottomNavigationBarType.shifting,
-            onTap: (int index) {
-              setState(() => this._currentTabIndex = index);
-            },
-          ),
-        ),
-      ),
+    title: Text(route.title, maxLines: 2, overflow: TextOverflow.ellipsis),
+    subtitle: route.description.trim().isEmpty ? null : Text(route.description,
+      maxLines: 2, overflow: TextOverflow.ellipsis),
+    trailing: IconButton(
+      tooltip: settings.isStarred(route.routeName) ? 'Remove bookmark' : 'Bookmark',
+      icon: Icon(settings.isStarred(route.routeName) ? Icons.star : Icons.star_border),
+      color: settings.isStarred(route.routeName) ? const Color(0xFFE4A326) : null,
+      onPressed: () => settings.toggleStarred(route.routeName),
+    ),
+    onTap: () => _openRoute(route, settings),
+  );
 
+  void _openRoute(MyRoute route, MyAppSettings settings) {
+    settings.markRouteOpened(route.routeName);
+    Navigator.of(context).pushNamed(route.routeName);
+  }
+
+  Widget _demosList(MyAppSettings settings) {
+    final List<MyRoute> demos = kAllRoutes.where((MyRoute route) {
+      final String title = route.title.toLowerCase();
+      return title.contains('sample') || title.contains('demo') ||
+          title.contains('project') || title.contains('app');
+    }).toList();
+    return ListView(key: const PageStorageKey<String>('demos'),
+      padding: const EdgeInsets.all(12), children: <Widget>[
+        Padding(padding: const EdgeInsets.all(8), child: Text(
+          'Demos & projects', style: Theme.of(context).textTheme.titleLarge)),
+        const Padding(padding: EdgeInsets.fromLTRB(8, 0, 8, 12),
+          child: Text('Working example routes selected from the existing lectures and labs.')),
+        for (final MyRoute route in demos) Card(child: _routeTile(route, settings)),
+      ],
     );
   }
 
-  Widget _myRouteToListTile(MyRoute myRoute,
-      {Widget? leading, IconData trialing = Icons.keyboard_arrow_right,groupName}) {
-    final MyAppSettings mySettings = context.watch<MyAppSettings>();
-    final TextStyle routeTitleTextStyle = Theme.of(context)
-        .textTheme
-        .bodyMedium!
-        .copyWith(fontWeight: FontWeight.bold);
-    final Widget leadingWidget =
-        leading ?? mySettings.starStatusOfRoute(myRoute.routeName);
-    final bool isNew = mySettings.isNewRoute(myRoute.routeName);
-    return
-      Card(
-      //elevation: 10,
-      child: ListTile(
-        leading: isNew
-            ? badge.Badge(
-          position: BadgePosition.topEnd(top: 2, end: 2),
-          child: leadingWidget,
-        )
-            : leadingWidget,
-        title: Text(myRoute.title, style: routeTitleTextStyle),
-        trailing: Icon(trialing),
-        subtitle: myRoute.description.isEmpty ? null :
-        Text(myRoute.description),
-        onTap: () {
-          if (isNew) {
-            mySettings.markRouteKnown(myRoute.routeName);
-          }
-          //if(myRoute.indexdemo_roq==1000)  //groupName
-          Navigator.of(context).pushNamed(myRoute.routeName);
-          /*else {
-demotitle.add(myRoute.title);
-            Navigator.of(context).pushNamed(myRoute.routeName, arguments: {
-              'indexdemo_last': myRoute.indexdemo_roq,});
-          }
-*/
-        },
-      ),
-    );
-  }
-
-  Widget _myRouteGroupToExpansionTile(MyRouteGroup myRouteGroup) {
-    final int nNew = context.watch<MyAppSettings>().numNewRoutes(myRouteGroup);
-    return  Card(
-      shape: BeveledRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-    //color: Colors.red,
-    elevation: 5,
-    child:InkWell(
-      splashColor: Colors.cyan[100],
-      highlightColor: Colors.transparent,
-      child:
-    ExpansionTile(
-        leading: nNew > 0
-            ? badge.Badge(badgeContent: Text('$nNew'), child:Icon(Icons.library_books),/*myRouteGroup.icon*/)
-            : Icon(Icons.library_books),//myRouteGroup.icon,
-        title: Text(
-          myRouteGroup.groupName,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        children:
-
-        myRouteGroup.routes.map(_myRouteToListTile).toList(),
-      ),
-    )
-    );
-  }
-
-
-}
-
-
-/////////////////
-
-/* import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyWidget(),
+  Widget _savedList(MyAppSettings settings) {
+    final List<MyRoute> completed = <MyRoute>[
+      for (final String name in settings.completedRoutes)
+        if (kRouteNameToRoute[name] != null) kRouteNameToRoute[name]!,
+    ];
+    return ListView(key: const PageStorageKey<String>('saved'),
+      padding: const EdgeInsets.all(12), children: <Widget>[
+        Padding(padding: const EdgeInsets.all(8), child: Text('Your study space',
+          style: Theme.of(context).textTheme.titleLarge)),
+        Card(child: Padding(padding: const EdgeInsets.all(14),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+            Text('Progress', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            LinearProgressIndicator(value: settings.totalRouteCount == 0 ? 0 :
+              settings.completedCount / settings.totalRouteCount),
+            const SizedBox(height: 8),
+            Text('${settings.completedCount} of ${settings.totalRouteCount} examples completed'),
+            Text('${settings.completedExercises.length} exercises completed'),
+            Text('Best review quiz: ${settings.bestQuizScore} correct answers'),
+          ]))),
+        const SizedBox(height: 12),
+        ListTile(title: const Text('Bookmarks'),
+          leading: const Icon(Icons.bookmark_rounded),
+          subtitle: Text('${settings.starredRoutes.length} saved examples')),
+        if (settings.starredRoutes.isEmpty)
+          const Padding(padding: EdgeInsets.all(18),
+            child: Text('Tap the star on an example to save it here.')),
+        for (final MyRoute route in settings.starredRoutes)
+          Card(child: _routeTile(route, settings)),
+        const SizedBox(height: 8),
+        ListTile(title: const Text('Completed examples'),
+          leading: const Icon(Icons.check_circle_outline),
+          subtitle: Text('${completed.length} topics')),
+        for (final MyRoute route in completed)
+          Card(child: _routeTile(route, settings)),
+        const Divider(),
+        Card(child: ListTile(
+          leading: const Icon(Icons.info_outline),
+          title: const Text('About this app'),
+          onTap: () => Navigator.of(context).pushNamed(kAboutRoute.routeName),
+        )),
+      ],
     );
   }
 }
-
-class MyWidget extends StatefulWidget {
-  @override
-  MyWidgetState createState() => MyWidgetState();
-}
-
-class MyWidgetState extends State<MyWidget> {
-  late int tappedIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    tappedIndex = 0;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-          ListView.builder(
-              shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return Container(
-                    color: tappedIndex == index ? Colors.blue : Colors.grey,
-                    child: ListTile(
-                        title: Center(
-                      child: Text('${index + 1}'),
-                    ),onTap:(){
-                          setState((){
-                            tappedIndex=index;
-                          });
-                        }));
-              })
-        ]));
-  }
-}
-*/

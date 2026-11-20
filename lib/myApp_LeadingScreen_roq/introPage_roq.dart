@@ -1,215 +1,126 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../myApp_Data_Settings_roq/constants.dart';
-//show  DartMain_rout_Roq, Dummy, Img, MyColors, MyText, Wizard;
+import '../myApp_Data_Settings_roq/my_app_settings.dart';
 
 class IntroScreen_Roq extends StatefulWidget {
-  const IntroScreen_Roq({Key? key}) : super(key: key);
-
+  const IntroScreen_Roq({super.key});
   @override
-  IntroScreen_RoqState createState() => new IntroScreen_RoqState();
+  State<IntroScreen_Roq> createState() => _IntroScreenRoqState();
 }
 
-class IntroScreen_RoqState extends State<IntroScreen_Roq> {
-  List<IntroScr_Wizard> wizardData = Dummy_IntroScr.IntroScr_getWizard();
-  PageController pageController = PageController(
-    initialPage: 0,
-  );
-  int page = 0;
-  bool isLast = false;
+class _IntroScreenRoqState extends State<IntroScreen_Roq> {
+  final PageController _controller = PageController();
+  int _index = 0;
+  static const List<_IntroSlide> _slides = <_IntroSlide>[
+    _IntroSlide(Icons.school_outlined, 'Learn Flutter by exploring',
+      'Browse lecture examples and labs in one organized place. Open any topic to explore its live preview and Dart source code.'),
+    _IntroSlide(Icons.code_rounded, 'Read and understand the code',
+      'View syntax-highlighted Dart, switch editor colors, resize text, jump to a line, and copy examples for personal study.'),
+    _IntroSlide(Icons.emoji_events_outlined, 'Practice and track progress',
+      'Try topic-based exercises, answer review quizzes, bookmark examples, and continue from your most recently opened topic.'),
+  ];
+
+  void _finish() {
+    context.read<MyAppSettings>().markIntroCompleted();
+    Navigator.of(context).pushReplacementNamed(flutterMain_rout_Roq);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      //=>backgroundColor: Colors.grey[100],
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0),
-          child: Container(color: Colors.grey[100])),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(children: <Widget>[
-          Expanded(
-            child: Stack(
-              children: <Widget>[
-                PageView(
-                  onPageChanged: onPageViewChange,
-                  controller: pageController,
-                  children: buildPageViewItem(),
-                ),
-                /* Row(
-                  children: <Widget>[
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.close, color: MyColors.grey_40),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                )*/
-                Row(
-                  children: <Widget>[
-                    Spacer(),
-                    ButtonTheme(
-                      minWidth: 10,
-                      child: TextButton(
-                        child: Text("SKIP",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                    color: MyColors.grey_60,
-                                    fontWeight: FontWeight.w500)),
-
-
-                        // color: Colors.transparent,
-                        onPressed: () {
-                          // Navigator.pop(context);
-                          Navigator.of(context)
-                              .pushReplacementNamed(flutterMain_rout_Roq);
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              height: 60,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: buildDots(context),
+    final ColorScheme colors = Theme.of(context).colorScheme;
+    final bool last = _index == _slides.length - 1;
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Expanded(child: Text('ENG RUQAIH SALMAN',
+                      maxLines: 1, overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontWeight: FontWeight.bold, color: colors.primary))),
+                  TextButton(onPressed: _finish, child: const Text('Skip')),
+                ],
               ),
-            ),
+              Expanded(
+                child: PageView.builder(
+                  controller: _controller,
+                  itemCount: _slides.length,
+                  onPageChanged: (int value) => setState(() => _index = value),
+                  itemBuilder: (BuildContext context, int i) {
+                    final _IntroSlide item = _slides[i];
+                    return LayoutBuilder(builder: (context, size) =>
+                      SingleChildScrollView(
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(minHeight: size.maxHeight),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                width: 136, height: 136,
+                                decoration: BoxDecoration(
+                                  color: colors.primaryContainer,
+                                  borderRadius: BorderRadius.circular(32),
+                                ),
+                                child: Icon(item.icon, size: 78,
+                                  color: colors.onPrimaryContainer),
+                              ),
+                              const SizedBox(height: 30),
+                              Text(item.heading, textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                  fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 16),
+                              Text(item.description, textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  height: 1.5)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: List<Widget>.generate(_slides.length, (int i) =>
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 220),
+                    margin: const EdgeInsets.all(4),
+                    height: 8,
+                    width: i == _index ? 25 : 8,
+                    decoration: BoxDecoration(
+                      color: i == _index ? colors.primary : colors.outlineVariant,
+                      borderRadius: BorderRadius.circular(10)),
+                  ))),
+              const SizedBox(height: 20),
+              SizedBox(width: double.infinity, child: FilledButton.icon(
+                onPressed: last ? _finish : () => _controller.nextPage(
+                  duration: const Duration(milliseconds: 280),
+                  curve: Curves.easeOutCubic),
+                icon: Icon(last ? Icons.check_circle_outline : Icons.arrow_forward),
+                label: Text(last ? 'Start learning' : 'Next'),
+              )),
+            ],
           ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            child: TextButton(
-              child: Text(isLast ? "GOT IT" : "NEXT",
-                  style: MyText.subhead(context)?.copyWith(
-                      color: MyColors.grey_40,
-                      fontWeight: FontWeight.bold)),
-              //color: MyColors.grey_10,
-              onPressed: () {
-                if (isLast) {
-                  //Navigator.pop(context);
-                  Navigator.of(context)
-                      .pushReplacementNamed(flutterMain_rout_Roq);
-                  return;
-                }
-                pageController.nextPage(
-                    duration: Duration(milliseconds: 300),
-                    curve: Curves.easeOut);
-              },
-            ),
-          )
-        ]),
+        ),
       ),
     );
   }
+}
 
-  void onPageViewChange(int _page) {
-    page = _page;
-    isLast = _page == wizardData.length - 1;
-    setState(() {});
-  }
-
-  List<Widget> buildPageViewItem() {
-    List<Widget> widgets = [];
-    for (IntroScr_Wizard wz in wizardData) {
-      Widget wg = Container(
-        padding: EdgeInsets.all(35),
-        alignment: Alignment.center,
-        width: double.infinity,
-        height: double.infinity,
-        child: Wrap(
-          children: <Widget>[
-            Container(
-                width: 280,
-                child: Stack(
-                  children: <Widget>[
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(35),
-                          child: Image.asset(Img.get(wz.image),
-                              width: 150, height: 150),
-                        ),
-                        Text(
-                          wz.title,
-                          style: TextStyle(
-                            fontFamily: Constants.POPPINS,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18.5,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15.0,
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Text(
-                              wz.brief,
-                              style: TextStyle(
-                                fontFamily: Constants.OPEN_SANS,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1.5,
-                                fontSize: 14.5,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        /*Text(wz.title, style: MyText.medium(context)?.copyWith(color: MyColors.grey_80, fontWeight: FontWeight.bold)),
-                        Center(
-                            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                        child:Container(
-                          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                          child: Text(wz.brief, textAlign : TextAlign.center, style: MyText.subhead(context)?.copyWith(
-                              color: MyColors.grey_60
-                          )),))),*/
-                      ],
-                    )
-                  ],
-                ))
-          ],
-        ),
-      );
-      widgets.add(wg);
-    }
-    return widgets;
-  }
-
-  Widget buildDots(BuildContext context) {
-    Widget widget;
-
-    List<Widget> dots = [];
-    for (int i = 0; i < wizardData.length; i++) {
-      Widget w = Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
-        height: 8,
-        width: 8,
-        child: CircleAvatar(
-          backgroundColor: page == i
-              ? /*Colors.orange[400]*/ Color(0xFFf06292)
-              : MyColors.grey_20,
-        ),
-      );
-      dots.add(w);
-    }
-    widget = Row(
-      mainAxisSize: MainAxisSize.min,
-      children: dots,
-    );
-    return widget;
-  }
+class _IntroSlide {
+  const _IntroSlide(this.icon, this.heading, this.description);
+  final IconData icon;
+  final String heading;
+  final String description;
 }

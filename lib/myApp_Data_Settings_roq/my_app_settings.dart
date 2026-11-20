@@ -1,260 +1,128 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../myApp_MainUI_roq/my_app_routes.dart' show MyRouteGroup, kAboutRoute, kAllRoutes;
+import '../myApp_MainUI_roq/my_app_routes.dart'
+    show MyRouteGroup, kAboutRoute, kAllRoutes;
 import '../myApp_MainUI_roq/my_route.dart';
 
-
-final mySettingsProvider = ChangeNotifierProvider<MyAppSettings>((ref) => throw UnimplementedError());
-
+/// Local-only study preferences; no account or network connection required.
 class MyAppSettings extends ChangeNotifier {
-  static const String _kDarkModePreferenceKey = 'DARK_MODE';
-  static const String _kSearchHistoryPreferenceKey = 'SEARCH_HISTORY';
-  static const String _kBookmarkedRoutesPreferenceKey = 'BOOKMARKED_ROUTES';
-  static final Map<String, MyRoute> _kRoutenameToRouteMap = {
-    for (MyRoute route in kAllRoutes) route.routeName: route
-  };
+  MyAppSettings(this._pref) {
+    if (_pref.getStringList(_knownKey) == null) {
+      _pref.setStringList(_knownKey, <String>[
+        ...kAllRoutes.map((MyRoute route) => route.routeName),
+        kAboutRoute.routeName,
+      ]);
+    }
+  }
 
   final SharedPreferences _pref;
+  static const _darkKey = 'DARK_MODE';
+  static const _historyKey = 'SEARCH_HISTORY';
+  static const _bookmarkKey = 'BOOKMARKED_ROUTES';
+  static const _knownKey = 'KNOWN_ROUTES';
+  static const _completeKey = 'ROQSAL_COMPLETED_ROUTES_V2';
+  static const _exerciseKey = 'ROQSAL_COMPLETED_EXERCISES_V2';
+  static const _lastKey = 'ROQSAL_LAST_OPENED_ROUTE';
+  static const _introKey = 'ROQSAL_INTRO_COMPLETED_V2';
+  static const _quizKey = 'ROQSAL_BEST_QUIZ_SCORE_V2';
 
-  MyAppSettings(this._pref) {
-    // When first time opening the app: mark all routes as known -- we only
-    // display a red dot for *new* routes.
-    if (_pref.getStringList(_kKnownRoutesKey) == null) {
-      final List<String> allrouteNames = _kRoutenameToRouteMap.keys.toList()
-        ..add(kAboutRoute.routeName);
-      _pref.setStringList(_kKnownRoutesKey, allrouteNames);
-    }
-  }
-
-  bool get isDarkMode => _pref.getBool(_kDarkModePreferenceKey) ?? false;
-
-  // ignore:avoid_positional_boolean_parameters
-  void setDarkMode(bool val) {
-    _pref.setBool(_kDarkModePreferenceKey, val);
-    notifyListeners();
-  }
-
-  /// The list of route names in search history.
-  List<String> get searchHistory =>
-      _pref.getStringList(_kSearchHistoryPreferenceKey) ?? [];
-
-  void addSearchHistory(String routeName) {
-    List<String> history = this.searchHistory;
-    history.remove(routeName);
-    history.insert(0, routeName);
-    if (history.length >= 10) {
-      history = history.take(10).toList();
-    }
-    _pref.setStringList(_kSearchHistoryPreferenceKey, history);
-  }
-
-  List<String> get starredRoutenames =>
-      _pref.getStringList(_kBookmarkedRoutesPreferenceKey) ?? [];
-
-  List<MyRoute> get starredRoutes => [
-        for (String routename in this.starredRoutenames)
-          if (_kRoutenameToRouteMap[routename] != null)
-            _kRoutenameToRouteMap[routename]!
-      ];
-
-  // Returns a widget showing the star status of one demo route.
-  Widget starStatusOfRoute(String routeName) {
-    return IconButton(
-      tooltip: 'Bookmark',
-      icon: Icon(
-        this.isStarred(routeName) ? Icons.star : Icons.star_border,
-        color: this.isStarred(routeName) ? Colors.yellow : Colors.grey,
-      ),
-      onPressed: () => this.toggleStarred(routeName),
-    );
-  }
-
-  bool isStarred(String routeName) => starredRoutenames.contains(routeName);
-
-  void toggleStarred(String routeName) {
-    final staredRoutes = this.starredRoutenames;
-    if (isStarred(routeName)) {
-      staredRoutes.remove(routeName);
-    } else {
-      staredRoutes.add(routeName);
-    }
-    final dedupedStaredRoutes = Set<String>.from(staredRoutes).toList();
-    _pref.setStringList(_kBookmarkedRoutesPreferenceKey, dedupedStaredRoutes);
-    notifyListeners();
-  }
-
-  // Used to decide if an example route is newly added. We will show a red dot
-  // for newly added routes.
-  static const _kKnownRoutesKey = 'KNOWN_ROUTES';
-  bool isNewRoute(String routeName) =>
-      !(_pref.getStringList(_kKnownRoutesKey)?.contains(routeName) ?? false);
-
-  void markRouteKnown(String routeName) {
-    if (isNewRoute(routeName)) {
-      final knowRoutes = _pref.getStringList(_kKnownRoutesKey)?..add(routeName);
-      _pref.setStringList(_kKnownRoutesKey, knowRoutes ?? []);
-      notifyListeners();
-    }
-  }
-
-  // Returns the number of new example routes in this group.
-  int numNewRoutes(MyRouteGroup group) {
-    return group.routes.where((route) => isNewRoute(route.routeName)).length;
-  }
-
-
-
-  ////////////////////////// Update in Cataloge App2023
-
-/*  static final _kRoutenameToRouteMap = {
-    for (MyRoute route in kAllRoutes) route.routeName: route
+  static final Map<String, MyRoute> _routes = <String, MyRoute>{
+    for (final MyRoute route in kAllRoutes) route.routeName: route,
   };
 
-  static Future<MyAppSettings> create() async {
-    debugPrint('app dir=${await getApplicationDocumentsDirectory()}');
-    final sharedPref = await SharedPreferences.getInstance();
-    final s = MyAppSettings._(sharedPref);
-    await s._init();
-    return s;
-  }
-
-  final SharedPreferences _pref;*/
-
-  MyAppSettings._(this._pref);
-
-  Future<void> _init() async {
-    // When first time opening the app: mark all routes as known -- we only
-    // display a red dot for *new* routes.
-    final knownRoutes = _pref.getStringList(kKnownRoutesKey);
-    debugPrint('knownroute=$knownRoutes');
-    // Check if user opens the app for the FIRST time.
-    if (knownRoutes == null || knownRoutes.length < 50) {
-      debugPrint('Adding all routes to known routes...');
-      final allrouteNames = _kRoutenameToRouteMap.keys.toList()
-        ..add(kAboutRoute.routeName);
-      await _pref.setStringList(kKnownRoutesKey, allrouteNames);
-      debugPrint('knownroute=${_pref.getStringList(kKnownRoutesKey)}');
-    }
-  }
-
-  /*static const _kDarkModePreferenceKey = 'DARK_MODE';
-  bool get isDarkMode => _pref.getBool(_kDarkModePreferenceKey) ?? false;
-
-  // ignore:avoid_positional_boolean_parameters
-  void setDarkMode(bool val) {
-    _pref.setBool(_kDarkModePreferenceKey, val);
+  bool get isDarkMode => _pref.getBool(_darkKey) ?? false;
+  void setDarkMode(bool value) {
+    _pref.setBool(_darkKey, value);
     notifyListeners();
   }
 
-  /// The list of route names in search history.
-  static const _kSearchHistoryPreferenceKey = 'SEARCH_HISTORY';
-  List<String> get searchHistory =>
-      _pref.getStringList(_kSearchHistoryPreferenceKey) ?? [];
+  bool get introCompleted => _pref.getBool(_introKey) ?? false;
+  void markIntroCompleted() {
+    _pref.setBool(_introKey, true);
+    notifyListeners();
+  }
 
+  List<String> get searchHistory => _pref.getStringList(_historyKey) ?? <String>[];
   void addSearchHistory(String routeName) {
-    List<String> history = this.searchHistory;
-    history.remove(routeName);
-    history.insert(0, routeName);
-    if (history.length >= 10) {
-      history = history.take(10).toList();
-    }
-    _pref.setStringList(_kSearchHistoryPreferenceKey, history);
-  }
-
-  // Bookmarks
-  static const _kBookmarkedRoutesPreferenceKey = 'BOOKMARKED_ROUTES';
-  List<String> get starredRoutenames =>
-      _pref.getStringList(_kBookmarkedRoutesPreferenceKey) ?? [];
-
-  List<MyRoute> get starredRoutes => [
-    for (String routename in this.starredRoutenames)
-      if (_kRoutenameToRouteMap[routename] != null)
-        _kRoutenameToRouteMap[routename]!
-  ];*/
-
-  // Returns a widget showing the star status of one demo route.
- /* Widget starStatusOfRoute(String routeName) {
-    return IconButton(
-      tooltip: 'Bookmark',
-      icon: Icon(
-        this.isStarred(routeName) ? Icons.star : Icons.star_border,
-        color: this.isStarred(routeName) ? Colors.yellow : Colors.grey,
-      ),
-      onPressed: () {
-        this.toggleStarred(routeName);
-        kAnalytics?.logEvent(
-          name:
-          'evt_${this.isStarred(routeName) ? 'starRoute' : 'unstarRoute'}',
-          parameters: {'routeName': routeName},
-        );
-      },
-    );
-  }
-
- bool isStarred(String routeName) => starredRoutenames.contains(routeName);
-
-  void toggleStarred(String routeName) {
-    final staredRoutes = this.starredRoutenames;
-    if (isStarred(routeName)) {
-      staredRoutes.remove(routeName);
-    } else {
-      staredRoutes.add(routeName);
-    }
-    final dedupedStaredRoutes = Set<String>.from(staredRoutes).toList();
-    _pref.setStringList(_kBookmarkedRoutesPreferenceKey, dedupedStaredRoutes);
+    if (!_routes.containsKey(routeName)) return;
+    final List<String> history = List<String>.from(searchHistory)
+      ..remove(routeName)
+      ..insert(0, routeName);
+    _pref.setStringList(_historyKey, history.take(12).toList());
     notifyListeners();
-  }*/
+  }
 
-  // Used to decide if an example is newly added. We will show a red dot for
-  // newly added routes.
-  static const kKnownRoutesKey = 'KNOWN_ROUTE_NAMES';
- /* bool isNewRoute(MyRoute route) =>
-      !(_pref.getStringList(kKnownRoutesKey)?.contains(route.routeName) ??
-          false);
+  List<String> get starredRoutenames => _pref.getStringList(_bookmarkKey) ?? <String>[];
+  List<MyRoute> get starredRoutes => <MyRoute>[
+    for (final String name in starredRoutenames)
+      if (_routes[name] != null) _routes[name]!,
+  ];
+  bool isStarred(String routeName) => starredRoutenames.contains(routeName);
+  void toggleStarred(String routeName) {
+    if (!_routes.containsKey(routeName)) return;
+    final Set<String> names = starredRoutenames.toSet();
+    if (!names.add(routeName)) names.remove(routeName);
+    _pref.setStringList(_bookmarkKey, names.toList());
+    notifyListeners();
+  }
+  Widget starStatusOfRoute(String routeName) => IconButton(
+    tooltip: isStarred(routeName) ? 'Remove bookmark' : 'Bookmark example',
+    icon: Icon(isStarred(routeName) ? Icons.star_rounded : Icons.star_border_rounded),
+    color: isStarred(routeName) ? const Color(0xFFE4A326) : null,
+    onPressed: () => toggleStarred(routeName),
+  );
 
-  void markRouteKnown(MyRoute route) {
-    if (isNewRoute(route)) {
-      final knowRoutes = _pref.getStringList(kKnownRoutesKey)
-        ?..add(route.routeName);
-      _pref.setStringList(kKnownRoutesKey, knowRoutes ?? []);
+  List<String> get completedRoutes => _pref.getStringList(_completeKey) ?? <String>[];
+  bool isRouteCompleted(String routeName) => completedRoutes.contains(routeName);
+  void toggleRouteCompleted(String routeName) {
+    if (!_routes.containsKey(routeName)) return;
+    final Set<String> names = completedRoutes.toSet();
+    if (!names.add(routeName)) names.remove(routeName);
+    _pref.setStringList(_completeKey, names.toList());
+    notifyListeners();
+  }
+  int get completedCount => completedRoutes.where(_routes.containsKey).length;
+  int get totalRouteCount => _routes.length;
+
+  List<String> get completedExercises => _pref.getStringList(_exerciseKey) ?? <String>[];
+  bool isExerciseCompleted(String key) => completedExercises.contains(key);
+  void toggleExerciseCompleted(String key) {
+    final Set<String> names = completedExercises.toSet();
+    if (!names.add(key)) names.remove(key);
+    _pref.setStringList(_exerciseKey, names.toList());
+    notifyListeners();
+  }
+
+  int get bestQuizScore => _pref.getInt(_quizKey) ?? 0;
+  void recordQuizScore(int score) {
+    if (score > bestQuizScore) {
+      _pref.setInt(_quizKey, score);
       notifyListeners();
     }
-  }*/
-
-  // Returns the number of new example routes in this group.
- /* int numNewRoutes(MyRouteGroup group) {
-    return group.routes.where(isNewRoute).length;
-  }*/
-
-  // Number of coins rewarded.
-  static const _kCoinsKey = 'NUM_COINS';
-  int get rewardCoins => _pref.getInt(_kCoinsKey) ?? 0;
-  set rewardCoins(int c) {
-    _pref.setInt(_kCoinsKey, c);
-    notifyListeners();
   }
 
-  // Number of chatGPT conversion turns allowed.
-  static const _kChatGptTurnsKey = 'CHATGPT_TURNS_ALLOWED';
-  int get chatGptTurns => _pref.getInt(_kChatGptTurnsKey) ?? 10;
-  set chatGptTurns(int c) {
-    _pref.setInt(_kChatGptTurnsKey, c);
-    notifyListeners();
+  String? get lastOpenedRouteName {
+    final String? name = _pref.getString(_lastKey);
+    return name != null && _routes.containsKey(name) ? name : null;
+  }
+  MyRoute? get lastOpenedRoute => _routes[lastOpenedRouteName];
+  void markRouteOpened(String routeName) {
+    if (!_routes.containsKey(routeName)) return;
+    _pref.setString(_lastKey, routeName);
+    addSearchHistory(routeName);
+    markRouteKnown(routeName);
   }
 
-  // Whether the intro screen is shown.
-  static const _kIntroShownKey = 'INTRO_IS_SHOWN';
-  bool get introIsShown => _pref.getBool(_kIntroShownKey) ?? false;
-  set introIsShown(bool val) => _pref.setBool(_kIntroShownKey, val);
-
-  // Which tab the user was in the last time
-  static const _kCurrentTabIdxKey = 'CURRENT_TAB_INDEX';
-  int get currentTabIdx => _pref.getInt(_kCurrentTabIdxKey) ?? 0;
-  set currentTabIdx(int n) {
-    _pref.setInt(_kCurrentTabIdxKey, n);
+  bool isNewRoute(String routeName) =>
+      !(_pref.getStringList(_knownKey)?.contains(routeName) ?? false);
+  void markRouteKnown(String routeName) {
+    if (!isNewRoute(routeName)) return;
+    final Set<String> names = (_pref.getStringList(_knownKey) ?? <String>[]).toSet()
+      ..add(routeName);
+    _pref.setStringList(_knownKey, names.toList());
     notifyListeners();
   }
+  int numNewRoutes(MyRouteGroup group) =>
+      group.routes.where((MyRoute route) => isNewRoute(route.routeName)).length;
 }

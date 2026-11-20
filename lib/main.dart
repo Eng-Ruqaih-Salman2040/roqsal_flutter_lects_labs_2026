@@ -1,8 +1,4 @@
-import 'dart:io';
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,75 +8,46 @@ import 'myApp_Data_Settings_roq/thems_roq.dart';
 import 'myApp_LeadingScreen_roq/SplashScreen_roq.dart';
 import 'myApp_LeadingScreen_roq/introPage_roq.dart';
 import 'myApp_MainUI_roq/futterMain_roq.dart';
+import 'myApp_MainUI_roq/my_app_routes.dart' show kAppRoutingTable;
 
 Future<void> main() async {
-  /* await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);*/
-
-
   WidgetsFlutterBinding.ensureInitialized();
-  /*if (kIsOnMobile) {
-    await Firebase.initializeApp();}*/
-  final SharedPreferences sharedPref = await SharedPreferences.getInstance();
-  runApp(MyMainApp_Roq(sharedPref));
-
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  runApp(MyMainApp_Roq(prefs));
 }
 
 class MyMainApp_Roq extends StatelessWidget {
+  const MyMainApp_Roq(this.sharedPref, {super.key});
   final SharedPreferences sharedPref;
-  const MyMainApp_Roq(this.sharedPref, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MyAppSettings>.value(
-      value: MyAppSettings(sharedPref),
-      child: const MyMainMaterial_Screen_Roq(),
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider<MyAppSettings>(
+    create: (_) => MyAppSettings(sharedPref),
+    child: const MyMainMaterial_Screen_Roq(),
+  );
 }
-//final appBarTheme = AppBarTheme(color:pPrimaryColor, centerTitle: false, elevation: 0);
 
-
-class MyMainMaterial_Screen_Roq extends StatelessWidget{
+class MyMainMaterial_Screen_Roq extends StatelessWidget {
+  const MyMainMaterial_Screen_Roq({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    /* SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness:
-      Platform.isAndroid ? Brightness.light : Brightness.dark,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarDividerColor: Colors.grey,
-      systemNavigationBarIconBrightness: Brightness.dark,
-    ));*/
+    final bool dark = context.watch<MyAppSettings>().isDarkMode;
     return MaterialApp(
-
-      title: 'Flutter Guid Roq',
+      title: APP_NAME,
       debugShowCheckedModeBanner: false,
-      theme: Provider.of<MyAppSettings>(context).isDarkMode
-          ?
-      darkThemeData(context):
-      lightThemeData(context),
-
-
-      /* theme: ThemeData(
-        //primarySwatch: Colors.green,
-        //platform: TargetPlatform.android,
-      ),*/
-      home: SplashScreen_Roq(),
+      theme: dark ? darkThemeData(context) : lightThemeData(context),
+      home: const SplashScreen_Roq(),
       routes: <String, WidgetBuilder>{
-        Splash_rout_Roq: (BuildContext context) =>const  SplashScreen_Roq(),
-        flutterMain_rout_Roq:(BuildContext context) => const FlutterMain_Roq(),
-        IntroScreen_rout_Roq:(BuildContext context) =>const IntroScreen_Roq(),
-        //FlutterGuide_routs_Roq:(BuildContext context) => new FlutterGuide_Screens_Roq(),
-
+        Splash_rout_Roq: (_) => const SplashScreen_Roq(),
+        IntroScreen_rout_Roq: (_) => const IntroScreen_Roq(),
+        flutterMain_rout_Roq: (_) => const FlutterMain_Roq(),
+        // '/' belongs to [home]. All other examples use this root Navigator.
+        for (final MapEntry<String, WidgetBuilder> entry
+            in kAppRoutingTable.entries)
+          if (entry.key != Navigator.defaultRouteName)
+            entry.key: entry.value,
       },
     );
   }
-
-  const MyMainMaterial_Screen_Roq({super.key});
 }

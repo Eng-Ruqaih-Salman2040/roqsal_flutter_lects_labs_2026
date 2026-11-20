@@ -18,19 +18,23 @@ import '../myApp_MainUI_roq/my_route.dart';
 
 // *Note*: when APP_VERSION is changed, remember to also update pubspec.yaml.
 const String APP_VERSION = 'v1.0.0';
-const String APP_NAME = 'Flutter Guide';
+const String APP_NAME = 'Flutter Learning Hub';
 final Image kAppIcon =
 //Image.asset('assets_roq/assets_labs_roq/images/flutter.jpg', height: 64.0, width: 64.0,fit:BoxFit.cover,);
 Image.asset('assets_roq/images_roq/dartIcon5.png', height: 64.0, width: 64.0,fit:BoxFit.cover,);
 final Image kAppIcondark =
 Image.asset('assets_roq/images_roq/dartIcon10.jpg', height: 64.0, width: 64.0,fit:BoxFit.cover,);
 
-const String APP_DESCRIPTION = 'Best tutorial app for learning the core and advanced concepts in Dart programming language with syntax highlight, exercises and quiz.'
-    '\n\nDeveloped by Eng:Ruqaih Salman';
-const String GOOGLEPLAY_URL =
-    'https://play.google.com/store/apps/details?id=io.github.x_wei.flutter_catalog';
-const GITHUB_URL = 'https://github.com/X-Wei/flutter_catalog';
-const AUTHOR_SITE = 'http://x-wei.github.io';
+const String APP_DESCRIPTION =
+    'An educational Flutter catalog with lectures, labs, interactive previews, '
+    'Dart source code, practice exercises, quizzes, and personal study progress.'
+    '\n\nCreated by Eng Ruqaih Salman';
+const String GOOGLEPLAY_URL = '';
+const String GITHUB_URL =
+    'https://github.com/Eng-Ruqaih-Salman2040/roqsal_flutter_lects_labs_2026';
+const String AUTHOR_SITE = '';
+
+// The previous template author links were removed to avoid duplicate constants.
 
 
 ////////////////////////////////////////// Update in Catalog App 2023 ////////////////////////////
@@ -91,11 +95,11 @@ buildText_funroq(String text_roq) {
           const Divider( thickness: 2,),
           Text("$text_roq",
             style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.deepPurple[500],
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple[500],
                 fontFamily: Utils_Roq.ubuntuRegularFont),
-            ),
+          ),
           const Divider( thickness: 2,),
         ],
       ),
