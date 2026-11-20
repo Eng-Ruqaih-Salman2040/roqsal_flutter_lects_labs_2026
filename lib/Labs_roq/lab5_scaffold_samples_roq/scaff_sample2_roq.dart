@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
               child: Stack(
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/material_bg_2.png',
+                    'assets_roq/assets_labs_roq/images/material_bg_2.png',
                     width: double.infinity,
                     height: double.infinity,
                     fit: BoxFit.cover,
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                       child: CircleAvatar(
                         radius: 33,
                         backgroundImage:
-                            AssetImage("assets/images/photo_male_6.jpg"),
+                            AssetImage("assets_roq/assets_labs_roq/images/photo_male_6.jpg"),
                       ),
                     ),
                   ),

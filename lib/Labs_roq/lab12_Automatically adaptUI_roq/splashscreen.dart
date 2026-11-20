@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               // SizedBox(width: 120,),
               // Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 40),),
-              Image.asset("assets/doctorsplash.gif", height: 450.0,
+              Image.asset("assets_roq/assets_labs_roq/images/team_illustration.png", height: 450.0,
                 width: 400.0,),
             ],
           ),
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               SizedBox(width: 110,),
               Text(" Mad With ", style: TextStyle(color: Color(0xFF929794), fontSize: 14),),
-              Image.asset("assets/love.png", height: 24, width: 24,),
+              Image.asset("assets_roq/assets_labs_roq/images/app_logo.png", height: 24, width: 24,),
               Text(" in Flutter ", style: TextStyle(color: Color(0xFF929794), fontSize: 14),),
             ],
           ),

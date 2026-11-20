@@ -34,7 +34,7 @@ class _SplashScreen_RoqState extends State<SplashScreen_Roq> {
               Row(
                 children: [
                   Image.asset(
-                    "assets/doctorsplash.gif",
+                    "assets_roq/assets_labs_roq/images/team_illustration.png",
                     height: 45.h,
                     width: 40.w,
                   ),
@@ -52,7 +52,7 @@ class _SplashScreen_RoqState extends State<SplashScreen_Roq> {
                     ),
                   ),
                   Image.asset(
-                    "assets/love.png",
+                    "assets_roq/assets_labs_roq/images/app_logo.png",
                     height: 3.5.h,
                     width: 3.5.h,
                   ),

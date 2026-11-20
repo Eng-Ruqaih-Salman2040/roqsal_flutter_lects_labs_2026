@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 //import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/lab11_Automatically%20adaptUI_roq/splashscreen.dart';
-import 'package:roqsal_flutter_lects_labs_2026/Labs_roq/lab12_Automatically%20adaptUI_roq/splashscreen.dart';
+import 'splashscreen.dart';
 
 
-import 'splashscreen_roq.dart';
+
 
 class SplashScreen_Roq2 extends StatefulWidget {
   const SplashScreen_Roq2({Key? key}) : super(key: key);
@@ -15,15 +15,24 @@ class SplashScreen_Roq2 extends StatefulWidget {
 }
 
 class _SplashScreen_Roq2State extends State<SplashScreen_Roq2> {
+  Timer? _navigationTimer;
+
+  @override
   void initState() {
     super.initState();
-    Timer(
-      Duration(seconds: 7),
-          () => Navigator.pushReplacement(
+    _navigationTimer = Timer(const Duration(seconds: 7), () {
+      if (!mounted) return;
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => OnBoardingScreen()),
-      ),
-    );
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _navigationTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -40,7 +49,7 @@ class _SplashScreen_Roq2State extends State<SplashScreen_Roq2> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/doctorsplash.gif",
+                "assets_roq/assets_labs_roq/images/team_illustration.png",
                 height: screenHeight * 0.6,
                 width: screenWidth * 0.8,
               ),
@@ -57,11 +66,7 @@ class _SplashScreen_Roq2State extends State<SplashScreen_Roq2> {
                   fontSize: screenWidth * 0.03,
                 ),
               ),
-              Image.asset(
-                "assets/love.png",
-                height: screenWidth * 0.05,
-                width: screenWidth * 0.05,
-              ),
+              Icon(Icons.favorite, color: Colors.red, size: screenWidth * 0.05),
               Text(
                 " in Flutter ",
                 style: TextStyle(
@@ -76,9 +81,9 @@ class _SplashScreen_Roq2State extends State<SplashScreen_Roq2> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "By Habibullah",
+                "Flutter Responsive Demo",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black54,
                   fontSize: screenWidth * 0.04,
                   decoration: TextDecoration.underline,
                 ),

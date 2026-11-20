@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/../Lecturs_roq/Lect14_Theming_roq/widgetsThem_roq/new_expense.dart';
+import 'new_expense.dart';
 
 
 import '../modelsThem_roq/expense.dart';

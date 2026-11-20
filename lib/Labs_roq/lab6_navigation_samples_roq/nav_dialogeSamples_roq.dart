@@ -426,7 +426,7 @@ class AddPostDialogState extends State<AddPostDialog> {
                         CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                              AssetImage("assets/images/photo_male_7.jpg"),
+                              AssetImage("assets_roq/assets_labs_roq/images/photo_male_7.jpg"),
                         ),
                         Container(width: 15),
                         Expanded(

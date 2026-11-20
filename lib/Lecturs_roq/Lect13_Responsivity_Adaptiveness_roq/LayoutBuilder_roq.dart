@@ -38,7 +38,7 @@ class _LayoutBuilder_RoqState extends State<LayoutBuilder_Roq> {
       padding: EdgeInsets.all(10),
       height: MediaQuery.of(context).size.height * 0.25,
       child: Image.asset(
-        'images/myimg.jpeg',
+        'assets_roq/assets_labs_roq/images/avatar.png',
       ),
     );
 
@@ -129,7 +129,7 @@ class _LayoutBuilder_RoqState extends State<LayoutBuilder_Roq> {
                                   radius: 30,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset('images/myimg.jpeg'),
+                                    child: Image.asset('assets_roq/assets_labs_roq/images/avatar.png'),
                                   ),
                                 ),
                                 title: Text(

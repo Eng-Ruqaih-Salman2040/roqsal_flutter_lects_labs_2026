@@ -50,6 +50,11 @@ dependencies:
   csv: ^6.0.0
   font_awesome_flutter: ^10.12.0
   sqflite: ^2.4.2
+  # Direct dependencies used by the SQLite and MySQL lab examples.
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  http: ^1.5.0
+  uuid: ^4.5.2
   shared_preferences: ^2.5.4
   another_flushbar: ^1.12.32
   cached_network_image: ^3.4.1
@@ -67,14 +72,13 @@ dependencies:
   mobx: ^2.5.0
   flutter_mobx: ^2.3.0
   flutter_staggered_grid_view: ^0.7.0
+  flutter_svg: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
     # flutter_svg: ^2.0.5
-  flutter_svg: ^2.0.0
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -95,6 +99,92 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    # Lab source files used by the Source Code tab (Flutter assets are not recursive).
+    - lib/Labs_roq/Lab10_offline_sqlf_projects_roq/Dogs_complex_relational_datalocally_roq/main_proj_Complex_Dogs_roq.dart
+    - lib/Labs_roq/Lab10_offline_sqlf_projects_roq/Expense_Manager_Roq/main_proj_EM_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/11_Localization_Getx_roq/1_baiscOverView_roq/1_device_language_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/12_Dialog_Getx_roq/homeDialog_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/13_Snackbar_Getx_roq/homeSnackbar_ex1_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/14_Bottomsheet_Getx_roq/mainBottomsheet.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/4_State_management_roq/4_0_setState_roq/setState_main_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/4_State_management_roq/4_1_Getx_roq/HomeGetx_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/4_State_management_roq/4_2_GetBuilder_roq/HomeGetBuilder_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/4_State_management_roq/4_3_Obx_roq/HomeObx_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/6_Dependendency_Injection_roq/6_1_GetPut_roq/Home_GetPut_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/getX/6_Dependendency_Injection_roq/6_3_GetLazyPut_find_roq/Home_GetLazyPut_roq.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/providers/4_cartShop_sample_roq/main_cartSample.dart
+    - lib/Labs_roq/Lab13_statManegment_wayes_roq/providers/mainProvider.dart
+    - lib/Labs_roq/Lab2_layout_widgets_roq/gridView_builder_roq.dart
+    - lib/Labs_roq/Lab2_layout_widgets_roq/gridView_count_roq.dart
+    - lib/Labs_roq/Lab2_layout_widgets_roq/gridView_custom_roq.dart
+    - lib/Labs_roq/Lab2_layout_widgets_roq/gridView_extent_roq.dart
+    - lib/Labs_roq/Lab2_layout_widgets_roq/lay_mealUI_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/Gridview_builder_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/Gridview_count_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/Gridview_extent_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/ListView_V_H_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/List_horizontal_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/Listview_seprated_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/lay_DynamicList_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/lay_sample_way1_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/lay_sample_way2_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/lay_show_many_producInfo_roq.dart
+    - lib/Labs_roq/Lab3_layout_samples_roq/lay_show_one_producInfo_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/gestdet_sample1_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/gestdet_sample2_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/gestdet_sample3_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/gestdet_sample4_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/gestdet_sample5_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/more_gesture_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/with_gesture_roq.dart
+    - lib/Labs_roq/Lab7_Gesture_Samples_roq/without_gesture_roq.dart
+    - lib/Labs_roq/Lab9_LocalStorage_Projectes_roq/sql_curdEx_roq/homepage.dart
+    - lib/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curdEx2_roq/main_ex2.dart
+    - lib/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex3_roq/main_exx3_roq.dart
+    - lib/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_curd_ex4_roq/main_ex4_roq.dart
+    - lib/Labs_roq/Lab9_LocalStorage_Projectes_roq/sqlf_login_sample1_roq.dart
+    - lib/Labs_roq/lab10_api_db_Online_roqsal/Mysql_DB_roq/sample1_loginPages_roq/main_login_sample1_roq.dart
+    - lib/Labs_roq/lab10_api_db_Online_roqsal/Mysql_DB_roq/sample2_curdPages_roq/main_curd_sampl2_roq.dart
+    - lib/Labs_roq/lab11_state_management_foundations_roq/lab11_examples_roq.dart
+    - lib/Labs_roq/lab12_Automatically adaptUI_roq/lab12_layout_comparison_roq.dart
+    - lib/Labs_roq/lab12_Automatically adaptUI_roq/onboarding_Screen_roq.dart
+    - lib/Labs_roq/lab12_Automatically adaptUI_roq/splashScreen_roq2.dart
+    - lib/Labs_roq/lab3_UI_widgets_roq/loginUI_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/DropdownButton_demo_2025.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/PopupMenuButton_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/Quiz_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/Widg_Radio_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/Widg_switch_pluginRoq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg2_loginForm_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_CalculatorWay1_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_CalculatorWay2_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_TextFiled_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_button_roq.dart
+    - lib/Labs_roq/lab4_widget_samples_roq/widget_samples_roq/widg_checkBox_roq.dart
+    - lib/Labs_roq/lab5_scaffold_samples_roq/scaff_appBar_tap_roq.dart
+    - lib/Labs_roq/lab5_scaffold_samples_roq/scaff_bottomsheet_all_roq.dart
+    - lib/Labs_roq/lab5_scaffold_samples_roq/scaff_sample1_roq.dart
+    - lib/Labs_roq/lab5_scaffold_samples_roq/scaff_sample2_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_Drawer_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_PageView_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_Page_Selector_Naviroq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Nav_draggable_scrollable_sheet_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_BottomNavigationBar_Naviroq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_BottomSheet_Naviroq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Bottom_tabBar_Naviroq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Dialogs_Navi_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Open_new_screen_and_Send_Data_w1_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Open_new_screen_and_back_w1_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navi_Will_pop_scop_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Navigation_Rail_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/F_Return_data_from_screen_w1_roq.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/nav_ImagePicker_multi_roq_Homework.dart
+    - lib/Labs_roq/lab6_navigation_samples_roq/nav_animate_across_screens.dart
+    - lib/Labs_roq/lab8_Async_samples/Asynchronies_FutureBuilder_Roq_Ex.dart
+    - lib/Labs_roq/lab8_Async_samples/Asynchronous_FutureBuilder_Roq_Ex0.dart
+    - lib/Labs_roq/lab8_Async_samples/Url_Launcher_Roq_Ex3.dart
+    - lib/Labs_roq/lab8_Async_samples/Url_Luncher_Roq_All_Ex.dart
+    - lib/Labs_roq/lab8_Async_samples/Url_Luncher_Roq_Ex1.dart
 
 
     - assets_roq/assets_lect_roq/images_roq/

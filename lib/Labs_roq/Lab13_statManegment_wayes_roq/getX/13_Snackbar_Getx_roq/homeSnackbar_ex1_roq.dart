@@ -65,7 +65,7 @@ class SnackbarGetx_Ex1_Roq extends StatelessWidget {
                               colorText: Colors.white,
                               borderRadius: 10,
                               backgroundColor:  Colors.teal ,
-                             // icon: Image.asset("assets/images/success_toast.png",
+                             // icon: Image.asset("assets_roq/assets_labs_roq/images/app_logo.png",
                               icon: const Icon(Icons.add_alert,size: 25,
 
                                 color: Colors.white,

@@ -25,20 +25,20 @@ class _OnBoardingScreen_RoqState extends State<OnBoardingScreen_Roq> {
         'Easily find your required doctors and you will get doctors in wide range',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboard3.png'),
+        imagePath: 'assets_roq/assets_labs_roq/images/flutter.jpg'),
     SkOnboardingModel_Roq(
         title: '24 Hours Service For COVID-19',
         description:
         'We make Service fast, simple and free-no matter if you order online or Physically',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboard2.png'),
+        imagePath: 'assets_roq/assets_labs_roq/images/avatar.png'),
     SkOnboardingModel_Roq(
         title: 'Best Online Doctor Appointment App',
         description: 'Appoint the Desired Doctor For which You Have Problem',
         titleColor: Colors.black,
         descripColor: const Color(0xFF929794),
-        imagePath: 'assets/onboard1.png'),
+        imagePath: 'assets_roq/assets_labs_roq/images/team_illustration.png'),
   ];
 
   Widget build(BuildContext context) {

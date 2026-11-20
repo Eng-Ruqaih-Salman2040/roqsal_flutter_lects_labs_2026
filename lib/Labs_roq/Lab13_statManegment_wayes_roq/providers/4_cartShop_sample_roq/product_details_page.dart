@@ -27,7 +27,7 @@ class ProductDetailsPage extends StatelessWidget {
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(12),
                 image: const DecorationImage(
-                  image: AssetImage('assets/placeholder.png'),
+                  image: AssetImage('assets_roq/assets_labs_roq/images/app_logo.png'),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -19,7 +19,7 @@ class SampleLayout_0_Roq extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Image.asset("assets/img_roq/android.png"),
+                      Image.asset("assets_roq/assets_labs_roq/img_roq/android.png"),
                       Padding(
                           padding: EdgeInsets.all(5),
                           child: Column(

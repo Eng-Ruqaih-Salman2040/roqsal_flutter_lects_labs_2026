@@ -188,7 +188,7 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 20,
                 ),
-                Image(image: AssetImage("images/login.png")),
+                Image(image: AssetImage("assets_roq/assets_labs_roq/images/avatar.png")),
                 Text(
                   "Login Form",
                   style: TextStyle(fontFamily: "Netflix", fontSize: 20),

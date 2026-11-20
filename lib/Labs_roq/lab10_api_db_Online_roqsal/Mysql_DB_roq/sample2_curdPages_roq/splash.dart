@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("images/splash.png")),
+            Image(image: AssetImage("assets_roq/assets_labs_roq/images/team_illustration.png")),
             SizedBox(height: 20,),
             Text(
               "Inventory Product App",

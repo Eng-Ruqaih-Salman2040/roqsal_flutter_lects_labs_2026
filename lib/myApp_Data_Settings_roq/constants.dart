@@ -20,7 +20,7 @@ import '../myApp_MainUI_roq/my_route.dart';
 const String APP_VERSION = 'v1.0.0';
 const String APP_NAME = 'Flutter Guide';
 final Image kAppIcon =
-//Image.asset('assets/images/flutter_logoRoq.jpeg', height: 64.0, width: 64.0,fit:BoxFit.cover,);
+//Image.asset('assets_roq/assets_labs_roq/images/flutter.jpg', height: 64.0, width: 64.0,fit:BoxFit.cover,);
 Image.asset('assets_roq/images_roq/dartIcon5.png', height: 64.0, width: 64.0,fit:BoxFit.cover,);
 final Image kAppIcondark =
 Image.asset('assets_roq/images_roq/dartIcon10.jpg', height: 64.0, width: 64.0,fit:BoxFit.cover,);

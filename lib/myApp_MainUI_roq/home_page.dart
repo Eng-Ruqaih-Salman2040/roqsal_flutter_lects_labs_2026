@@ -110,9 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ListView(children: UILect_Flutter_roq),
           ListView(children: UILab_Flutter_roq),
           ListView(children: ProjectssFlutter_roq),
-           //Flutter_Exercises_Roq(),//ExercisesDart_roq),
-         //ListView(children: QuizeDart_roq),
-          //Dart_QuizUI_Roq(),
+          const Center(child: Text('Exercises will appear here when added.')),
+          const Center(child: Text('Quizzes will appear here when added.')),
           ListView(children: bookmarkAndAboutDemos),
 
         ],

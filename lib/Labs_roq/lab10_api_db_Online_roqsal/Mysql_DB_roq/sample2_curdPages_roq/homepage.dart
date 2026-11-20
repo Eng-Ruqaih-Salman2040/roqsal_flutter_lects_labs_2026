@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Image(image: AssetImage("images/dashboard.png")),
+          Image(image: AssetImage("assets_roq/assets_labs_roq/images/android_img.png")),
           SizedBox(
             height: 40,
           ),
