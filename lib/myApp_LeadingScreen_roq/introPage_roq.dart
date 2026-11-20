@@ -62,8 +62,7 @@ class IntroScreen_RoqState extends State<IntroScreen_Roq> {
                                 ?.copyWith(
                                     color: MyColors.grey_60,
                                     fontWeight: FontWeight.w500)),
-                        /* MyText.subhead(context)?.copyWith(
-                            color: MyColors.grey_40, fontWeight: FontWeight.w500*/
+
 
                         // color: Colors.transparent,
                         onPressed: () {
